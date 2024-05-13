@@ -14,7 +14,7 @@ class Database
 
         // Localhost
         $host = "localhost";
-        $dbname = "react_school";
+        $dbname = "db_portfolio";
         $username = "root";
         $password = "";
 

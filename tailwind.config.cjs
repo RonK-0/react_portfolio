@@ -21,6 +21,18 @@ export default {
         darkGray: "#343434",
         lightGray: "#828282",
         termGreen: '#00C514',
+
+        dark_bg: "rgba(var(--dark_bg), <alpha-value>)",
+        dark2: "rgba(var(--dark2), <alpha-value>)",
+        light_bg: "rgba(var(--light_bg), <alpha-value>)",
+        menu_hover: "rgba(var(--menu_hover), <alpha-value>)",
+        raised_bg: "rgba(var(--raised_bg), <alpha-value>)",
+        text_primary: "rgba(var(--text_primary), <alpha-value>)",
+        text_secondary: "rgba(var(--text_secondary), <alpha-value>)",
+        text_disabled: "rgba(var(--text_disabled), <alpha-value>)",
+        outline: "rgba(var(--outline), <alpha-value>)",
+        searchBox_focus: "rgba(var(--searchBox_focus), <alpha-value>)",
+        hover_bg: "rgba(var(--hover_bg), <alpha-value>)",
       },
       backgroundImage:{
         // transparent_bg: "url('../dist/img/transparent.png')",
@@ -47,10 +59,16 @@ export default {
       },
       fontFamily: {
         // 'text-inter': ["Inter", "sans-serif"],
+
+        // PORTFOLIO STUFF
         'text-lato': ["Lato", "Open Sans", "Helvetica", "Arial", "Verdana", "sans-serif"],
         'text-lato_b': ["Lato-Bold", "Open Sans", "Helvetica", "Arial", "Verdana", "sans-serif"],
         'text-firasans': ["Fira Sans", "Open Sans", "Helvetica", "Arial", "Verdana", "sans-serif"],
         'text-firacode': ["Fira Code", "Cousine", "Consolas", "monospace"],
+
+        // DASHBOARD STUFF
+        'text-youtube': ["YouTube Sans", "Arial", "sans-serif"],
+        'text-roboto': ["Roboto", "Arial", "sans-serif"],
       },
       fontSize: {
         // 'button' : 'clamp(16px, 1vw, 24px) !important',
@@ -118,6 +136,9 @@ export default {
       width:{
         // 'bannerSlider_card_bg' : 'calc(100% + calc(1.5 * calc(1.5rem * 0.5)))',
         // 'tel_icon' : 'clamp(24px, 10vw, 38px)',
+
+        15: "60px",
+        18: "72px"
       },
       maxWidth:{
         // 'bannerSlider_card_bg' : 'calc(85% + calc(1.5rem * 0.5))',

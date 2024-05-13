@@ -5,7 +5,7 @@ const initVal = {
   error: false,
   info: false,
   success: false,
-  message: '',
+  message: "",
   isSave: false,
   isShow: false,
   isActive: false,
@@ -13,6 +13,7 @@ const initVal = {
   isRestore: false,
   isDelete: false,
   isAdd: false,
+  isEdit: false,
 };
 
 const StoreContext = React.createContext();

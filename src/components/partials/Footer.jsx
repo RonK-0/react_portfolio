@@ -3,7 +3,7 @@ import { FaEnvelope } from "react-icons/fa";
 import { BsMessenger } from "react-icons/bs";
 import { BsFacebook } from "react-icons/bs";
 import React from "react";
-import ContactIconLinks from "../pages/home/ContactIconLinks";
+import ContactIconLinks from "../pages/home/contact/ContactIconLinks";
 
 const Footer = () => {
   return (

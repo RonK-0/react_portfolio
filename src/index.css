@@ -4,55 +4,55 @@
 
 @font-face {
     font-family: 'Fira Code';
-    src: url('./fonts/FiraCode/firacode-variablefont_wght-webfont.woff2') format("woff2"),
-        url('./fonts/FiraCode/firacode-variablefont_wght-webfont.woff') format("woff");
+    src: url('/fonts/FiraCode/firacode-variablefont_wght-webfont.woff2') format("woff2"),
+        url('/fonts/FiraCode/firacode-variablefont_wght-webfont.woff') format("woff");
     font-display: swap;
 }
 @font-face {
     font-family: 'Fira Sans';
-    src: url('./fonts/FiraSans/firasans-regular-webfont.woff2') format("woff2"),
-        url('./fonts/FiraSans/firasans-regular-webfont.woff') format("woff");
+    src: url('/fonts/FiraSans/firasans-regular-webfont.woff2') format("woff2"),
+        url('/fonts/FiraSans/firasans-regular-webfont.woff') format("woff");
     font-display: swap;
 }
 @font-face {
     font-family: 'Lato-Black';
-    src: url('./fonts/Lato/lato-blakc-webfont.woff2') format('woff2'),
-         url('./fonts/Lato/lato-blakc-webfont.woff') format('woff');
+    src: url('/fonts/Lato/lato-blakc-webfont.woff2') format('woff2'),
+         url('/fonts/Lato/lato-blakc-webfont.woff') format('woff');
     font-display: swap;
     font-weight: 900;
 }
 @font-face {
     font-family: 'Lato-Bold';
-    src: url('./fonts/Lato/lato-bold-webfont.woff2') format('woff2'),
-         url('./fonts/Lato/lato-bold-webfont.woff') format('woff');
+    src: url('/fonts/Lato/lato-bold-webfont.woff2') format('woff2'),
+         url('/fonts/Lato/lato-bold-webfont.woff') format('woff');
     font-weight: 700;
     font-display: swap;
 }
 @font-face {
     font-family: 'Lato-Semibold';
-    src: url('./fonts/Lato/lato-semibold-webfont.woff2') format('woff2'),
-         url('./fonts/Lato/lato-semibold-webfont.woff') format('woff');
+    src: url('/fonts/Lato/lato-semibold-webfont.woff2') format('woff2'),
+         url('/fonts/Lato/lato-semibold-webfont.woff') format('woff');
     font-weight: 600;
     font-display: swap;
 }
 @font-face {
     font-family: 'Lato-Medium';
-    src: url('./fonts/Lato/lato-medium-webfont.woff2') format('woff2'),
-         url('./fonts/Lato/lato-medium-webfont.woff') format('woff');
+    src: url('/fonts/Lato/lato-medium-webfont.woff2') format('woff2'),
+         url('/fonts/Lato/lato-medium-webfont.woff') format('woff');
     font-weight: 500;
     font-display: swap;
 }
 @font-face {
     font-family: 'Lato';
-    src: url('./fonts/Lato/lato-regular-webfont.woff2') format('woff2'),
-         url('./fonts/Lato/lato-regular-webfont.woff') format('woff');
+    src: url('/fonts/Lato/lato-regular-webfont.woff2') format('woff2'),
+         url('/fonts/Lato/lato-regular-webfont.woff') format('woff');
     font-weight: 400;
     font-display: swap;
 }
 @font-face {
     font-family: 'Lato-Light';
-    src: url('./fonts/Lato/lato-light-webfont.woff2') format('woff2'),
-         url('./fonts/Lato/lato-light-webfont.woff') format('woff');
+    src: url('/fonts/Lato/lato-light-webfont.woff2') format('woff2'),
+         url('/fonts/Lato/lato-light-webfont.woff') format('woff');
     font-weight: 300;
     font-display: swap;
 }
@@ -64,12 +64,20 @@
 }
 
 @layer base{
-    /* :root{
-        --dark_bg: 241, 241, 241;
+    :root{
+        --dark_bg: 15, 15, 15;
+        --light_bg: 241, 241, 241;
+        --menu_hover: 39, 39, 39;
+        --raised_bg: 33, 33, 33;
+        --dark2: 18, 18, 18;
+        --text_primary: 255, 255, 255;
+        --text_secondary: 170, 170, 170;
+        --outline: 48, 48, 48;
+    
+        --text_disabled: 113, 113, 113;
+        --searchBox_focus: 62, 166, 255;
+        --hover_bg: 61, 61, 61;
     }
-    .dark{
-       --dark_bg: 15, 15, 15;
-    } */
 
     html, body{ @apply scroll-smooth; }
     body{
@@ -127,7 +135,35 @@
         @apply bg-down_arrow hover:bg-down_arrow_alt;
     }
 
-    /* START OF REUSABLE CLASSES */
+    /* Scrollbar Width */
+    .custom-scroll_b::-webkit-scrollbar {
+        @apply w-0 lg:w-[7px];
+    }
+    /* Scrollbar Track */
+    .custom-scroll_b::-webkit-scrollbar-track {
+        @apply bg-dark_bg;
+    }
+    /* Scrollbar Handle */
+    .custom-scroll_b::-webkit-scrollbar-thumb {
+        @apply bg-transparent rounded-lg;
+    }
+    /* Scrollbar Handle appears on hover */
+    .custom-scroll_b:hover::-webkit-scrollbar-thumb{
+        @apply bg-text_secondary;
+    }
+    /* Scrollbar Buttons */
+    .custom-scroll_b::-webkit-scrollbar-button:single-button {
+        @apply block bg-dark_bg w-[7px] h-[15px]
+        bg-clip-content bg-contain bg-no-repeat bg-center bg-none;
+    }
+    .custom-scroll_b:hover::-webkit-scrollbar-button:single-button:vertical:decrement {
+        @apply bg-up_arrow hover:bg-up_arrow_alt;
+    }
+    .custom-scroll_b:hover::-webkit-scrollbar-button:single-button:vertical:increment {
+        @apply bg-down_arrow hover:bg-down_arrow_alt;
+    }
+
+/* START OF REUSABLE CLASSES */
     .input-wrap{
         @apply mb-4 relative;
         label{
@@ -195,7 +231,7 @@
         @apply p-0.5 px-1.5 rounded-md
         absolute content-[attr(data-tooltip)]
         text-xs text-white tx-a
-        bg-lightGray/95 scale-0 transition-transform;
+        bg-lightGray scale-0 transition-transform;
     }
     .tooltip:after{
         @apply bottom-[calc(100%+10px)];
@@ -226,7 +262,7 @@
         @apply bg-light hover:bg-darkBlue
         hover:text-light text-dark;
     }
-    /* END OF REUSABLE CLASSES */
+/* END OF REUSABLE CLASSES */
     
     .header{
         @apply bg-dark py-4 fixed w-full z-40
@@ -307,19 +343,22 @@
                 @apply f-col center lg:center-start h-full;
                 .aboutText__greeting{ @apply mb-6; }
                 .aboutText__intro{
-                    @apply text-h1_5 leading-h1_5;
+                    @apply text-h1_5 leading-h1_5
+                    text-balance break-words;
                     span{ @apply text-blueGray; }
                 }
                 .aboutText__intro{
                     @apply w-full lg:w-3/4 mb-10;
                 }
                 .aboutText__description{
-                    @apply w-fit lg:w-3/4 text-balance text-h4_5 leading-[1.25] mb-10
+                    @apply w-fit lg:w-3/4
+                    text-balance break-words
+                    text-h4_5 leading-[1.25] mb-10
                     relative flex items-center gap-0;
                     .aboutText__description_icons{
                         @apply relative min-w-16 w-full max-w-16
                         lg:absolute lg:left-full lg:ty-a
-                        flex flex-wrap items-center gap-4 text-2xl
+                        hidden md:flex flex-wrap items-center gap-4 text-2xl
                         opacity-100 lg:opacity-0
                         transition-all duration-300;
                     }
@@ -332,7 +371,7 @@
                     .aboutText__trivia_foodIcons{
                         @apply relative min-w-16 w-full max-w-16
                         lg:absolute left-[10%] lg:left-[120%] bottom-0 lg:-bottom-1
-                        flex items-center gap-6 text-2xl 
+                        hidden md:flex items-center gap-6 text-2xl 
                         opacity-100 lg:opacity-0
                         transition-all duration-300;
                     }
@@ -354,30 +393,26 @@
     section.projects{
         .project__cards{
             @apply f-col gap-12;
+            
             .project__card{
-                @apply bg-[#555] rounded-[25px]
-                w-full h-fit flex center gap-6
-                py-6 px-8
+                @apply bg-[#555] hover:bg-darkBlue rounded-[25px]
+                w-full h-fit
+                flex center flex-wrap lg:flex-nowrap gap-6
+                py-10 xl:py-6 px-8
                 transition-all duration-300;
                 .project__card_text{
-                    @apply text-light w-1/2
-                    f-col gap-2;
-                    .project_title{
-                        .project_year{
-                            @apply text-h4;
-                        }
-                    }
+                    @apply text-light
+                    w-full lg:w-1/2
+                    f-col gap-4
+                    *:select-none;
+                    .project_title>.project_year{ @apply text-h4; }
                     .project_section{
                         .project_section_label{
-
+                            @apply underline opacity-95 capitalize;
                         }
-
-                        .project_decsription{
-
-                        }
-
+                        .project_description{ @apply leading-h3 pl-2; }
                         .project_skills{
-                            @apply flex start-center gap-8 px-3;
+                            @apply flex items-center flex-wrap gap-x-8 gap-y-4 p-2;
                             li{
                                 @apply rounded-full bg-transparent size-h3_outer p-1
                                 f-col-center transition-all duration-300
@@ -389,17 +424,37 @@
                 }
 
                 .project__card_slider{
-                    @apply -order-1 w-1/2
+                    @apply w-full lg:w-1/2 h-full -order-1;
+                    .slider-container{
+                        @apply flex flex-wrap lg:flex-wrap center gap-4
+                        w-full h-full;
+                        .mainSlider{
+                            @apply h-full w-full;
+                            .slick-slide>div, .slick-slide>div>img{ @apply max-h-[450px]; }
+                        }
+                        .thumbsSlider{
+                            @apply w-full !h-fit;
+                            .slick-list{
+                                @apply !h-fit;
+                                .slick-track{
+                                    @apply flex items-center gap-4;
+                                    img{ @apply h-16 lg:h-20; }
+                                }
+                            }
+                        }
+                    }
+                    img{
+                        @apply object-cover object-center aspect-square rounded-[15px];
+                    }
                 }
             }
             .project__card:nth-child(even){
-                @apply text-right flex-row-reverse;
+                @apply text-left flex-row;
+                .project_skills{ @apply justify-start; }
             }
             .project__card:nth-child(odd){
-                @apply text-left flex-row;
-            }
-            .project__card:hover{
-                @apply bg-darkBlue
+                @apply text-right flex-row-reverse;
+                .project_skills{ @apply justify-end; }
             }
         }
     }
@@ -549,6 +604,59 @@
             transition-none;
         }
     }
+
+/* START OF DASHBOARD STUFF */
+    .dash_page{
+        .yt_header{
+            .searchBox input:focus ~ .hidden-search-icon{
+                @apply -order-1 block;
+            }
+            .searchBox:has(input:focus){
+                @apply ml-0  w-[calc(100%+32px)] ;
+            }
+            .box:has(input:focus){ @apply border-searchBox_focus; }
+            svg{ @apply fill-light_bg; }
+        }
+    
+        .sidebar-collapsed button{
+            @apply w-16 pt-4 pb-[14px] rounded-lg
+            text-center f-col-center gap-[5px]
+            bg-transparent hover:bg-menu_hover;
+            svg{ @apply fill-light_bg w-6 h-6; }
+            small{ @apply text-[10px] text-text_primary; }
+        }
+        .sidebar-expanded{
+            svg { @apply fill-light_bg; }
+            .sidebar-links{
+                @apply px-3 py-2.5 border-b border-text_secondary border-opacity-40;
+                h3{ @apply ft-md text-base; }
+                .sidebar-link-item{
+                    @apply flex items-center gap-6 rounded-xl bg-transparent hover:bg-menu_hover w-full px-3.5 py-2;
+                    svg{ @apply w-6 h-6; }
+                    p{ @apply text-sm leading-none m-0; }
+                }
+                .sidebar-link-item.active{
+                    @apply bg-menu_hover;
+                }
+            }
+            .sidebar-links:last-child{ @apply !border-transparent; }
+        }
+
+        table.db_dash_project {
+            tr {
+                @apply grid grid-cols-7 gap-x-4 gap-y-10 py-3;
+            }
+            tbody>tr{
+                @apply even:bg-dark2 odd:bg-darkGray;
+            }
+            .table-action{
+                ul{
+                    @apply flex items-center gap-4;
+                }
+            }
+        }
+    }
+/* END OF DASHBOARD STUFF */
 }
 
 @layer utilities{
@@ -586,4 +694,8 @@
         scrollbar-width: thin;
         scrollbar-gutter: stable;
     }
+}
+
+.slick-slide{
+    @apply cursor-pointer;
 }

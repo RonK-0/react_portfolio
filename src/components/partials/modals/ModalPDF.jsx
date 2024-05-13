@@ -8,7 +8,7 @@ const ModalPDF = ({ pdf_file, handleShowPDF }) => {
   return (
     <div className="pdfModal_parent fixed top-0 left-0 w-full h-screen bg-black/80 z-50">
       <div className="container h-screen">
-        <div className="pdfModal_container w-full h-full mx-a py-6">
+        <div className="pdfModal_container w-full h-full mx-a py-1">
           <div className="w-full h-6 flex between-center bg-dark rounded-t-lg text-xl text-white px-4 py-4">
             <DownloadLink url={pdf_file} fileName="Kua_Resume.pdf"/>
             <button type="button" onClick={handleShowPDF}>

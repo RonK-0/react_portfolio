@@ -15,7 +15,7 @@ function checkApiKey()
     $un_pw = explode(":", base64_decode($auth_array[1]));
     $un = $un_pw[0];
 
-    if ($un !== $apiKey["school_key"]) {
+    if ($un !== $apiKey["portfolio_key"]) {
         $response = new Response();
         $error = [];
         $response->setSuccess(false);
@@ -347,4 +347,11 @@ function getQueriedData($query)
     $response->setData($returnData);
     $response->send();
     exit;
+}
+// Read search
+function checkSearch($object)
+{
+    $query = $object->search();
+    checkQuery($query, "Empty records. (search core)");
+    return $query;
 }

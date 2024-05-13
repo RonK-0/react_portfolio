@@ -8,13 +8,13 @@ import { FaCertificate } from "react-icons/fa";
 import { PageTitle } from "../../helpers/functions-general";
 import Header from "../../partials/Header";
 import Footer from "../../partials/Footer";
-import SectionBanner from "./SectionBanner";
-import SectionAbout from "./SectionAbout";
-import SectionProjects from "./SectionProjects";
-import SectionEducation from "./SectionEducation";
-import SectionCert from "./SectionCert";
-import SectionSkills from "./SectionSkills";
-import SectionContact from "./SectionContact";
+import SectionBanner from "./banner/SectionBanner";
+import SectionAbout from "./about/SectionAbout";
+import SectionProjects from "./projects/SectionProjects";
+import SectionEducation from "./education/SectionEducation";
+import SectionCert from "./certificates/SectionCert";
+import SectionSkills from "./skills/SectionSkills";
+import SectionContact from "./contact/SectionContact";
 
 const Home = () => {
   PageTitle("Portfolio - Ron Kua");
