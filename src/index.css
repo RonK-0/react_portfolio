@@ -77,11 +77,15 @@
         --text_disabled: 113, 113, 113;
         --searchBox_focus: 62, 166, 255;
         --hover_bg: 61, 61, 61;
+        
+        --warning: 177 130 47;
+        --cancel: 127 127 127;
+        --alert: 220 38 38;
     }
 
     html, body{ @apply scroll-smooth; }
     body{
-        @apply overflow-x-hidden font-text-lato text-light;
+        @apply overflow-x-hidden font-text-lato text-light bg-dark_bg;
     }
     input, textarea, button{ @apply outline-none focus:outline-none; }
     img, video, button{ @apply select-none; }
@@ -169,30 +173,38 @@
         label{
             @apply mb-1 px-4 block text-base absolute ty-a 
             text-dark/30 font-bold
-            transition-all duration-300 pointer-events-none;
+            transition-all duration-200 pointer-events-none;
         }
-        input, select, textarea{
-            @apply block w-full pb-2 pt-6 px-4 rounded-[25px]
+        input, select, textarea, .textarea{
+            @apply block w-full pb-2 pt-6 px-4 rounded-[15px]
             border-2 text-dark bg-light
             focus:border-blueGray focus:bg-dark/10 focus:text-light
-            transition-all duration-200 resize-none;
+            transition-all duration-200 resize-none
+            custom-scroll_b;
         }
         input:focus ~ label,
         select:focus ~ label,
         textarea:focus ~ label,
+        .textarea:focus ~ label,
         input:valid ~ label,
         select:valid ~ label,
         textarea:valid ~ label
+        .textarea:valid ~ label,
+        input:not(:empty) ~ label,
+        select:not(:empty) ~ label,
+        textarea:not(:empty) ~ label,
+        .textarea:not(:empty) ~ label
         { @apply -top-6 translate-y-8 text-xs px-5; }
 
         input:focus ~ label,
         select:focus ~ label,
         textarea:focus ~ label
-        { @apply text-light; }
+        { @apply !text-light; }
 
         input:not(:empty) ~ label,
         select:not(:empty) ~ label,
-        textarea:not(:empty) ~ label
+        textarea:not(:empty) ~ label,
+        .textarea:not(:empty) ~ label
         { @apply text-dark/30; }
 
         small{
@@ -246,22 +258,24 @@
     /* BUTTONS */
     .btn{
         @apply px-8  py-2
-        text-base text-center font-semibold
+        text-p text-center font-semibold
         border-none border-transparent
         bg-transparent rounded-full text-white
         transition-all duration-300
         hover:bg-light hover:text-dark;
     }
-    .btn--darkBlue{
-        @apply bg-darkBlue text-light;
-    }
-    .btn--blueGray{
-        @apply bg-blueGray text-dark;
-    }
     .btn--light{
         @apply bg-light hover:bg-darkBlue
         hover:text-light text-dark;
     }
+    .btn--darkBlue{ @apply bg-darkBlue text-light; }
+    .btn--blueGray{ @apply bg-blueGray text-dark; }
+    .btn-form{ @apply p-2 w-1/2 flex center gap-2; }
+    .btn--cancel{ @apply bg-cancel text-white; }
+    .btn--alert{ @apply bg-alert text-white; }
+    .btn--info{ @apply bg-info text-white; }
+    .btn--warning{ @apply bg-warning text-white; }
+    .btn--form{ @apply p-2 flex center gap-2; }
 /* END OF REUSABLE CLASSES */
     
     .header{
@@ -503,8 +517,8 @@
                 }
                 .skill__card_label{
                     @apply font-text-firasans text-center
-                    text-[clamp(10px,4vw,12px)]
-                    md:text-h6 leading-p
+                    text-[clamp(10px,4vw,12px)] md:text-h6 leading-p
+                    text-wrap line-clamp-2 text-ellipsis
                     bg-dark rounded-b-[25px]
                     h-fit w-full py-3 px-2 mb-0 z-[2]
                     absolute left-0 bottom-0 lg:-bottom-full
@@ -618,7 +632,7 @@
             svg{ @apply fill-light_bg; }
         }
     
-        .sidebar-collapsed button{
+        .sidebar-collapsed button, .sidebar-collapsed a{
             @apply w-16 pt-4 pb-[14px] rounded-lg
             text-center f-col-center gap-[5px]
             bg-transparent hover:bg-menu_hover;
@@ -635,26 +649,107 @@
                     svg{ @apply w-6 h-6; }
                     p{ @apply text-sm leading-none m-0; }
                 }
-                .sidebar-link-item.active{
-                    @apply bg-menu_hover;
-                }
+                .sidebar-link-item.active{ @apply bg-menu_hover; }
             }
             .sidebar-links:last-child{ @apply !border-transparent; }
         }
 
-        table.db_dash_project {
-            tr {
-                @apply grid grid-cols-7 gap-x-4 gap-y-10 py-3;
-            }
-            tbody>tr{
-                @apply even:bg-dark2 odd:bg-darkGray;
+        .dash_heading{
+            @apply w-full flex between-center mb-4;
+            h3{ @apply underline text-termGreen; }
+            .dash-new{ @apply flex items-center gap-2; }
+        }
+        table{
+            @apply f-col gap-2;
+            td,th{ @apply select-none; }
+            td:not(:last-of-type), th:not(:last-of-type) { @apply border-r border-r-white; }
+            thead{ @apply bg-dark underline; }
+            tr { @apply grid text-center py-4; }
+            tbody{
+                @apply f-col gap-y-2;
+                tr{
+                    @apply even:bg-searchBox_focus/20 odd:bg-darkGray
+                    hover:bg-termGreen/10
+                    transition-all duration-300;
+                    td{ @apply line-clamp-8 text-ellipsis px-2; }
+                }
+                
             }
             .table-action{
-                ul{
-                    @apply flex items-center gap-4;
+                ul{ @apply flex justify-center gap-4; }
+                button{
+                    @apply border-b-4 border-b-transparent hover:border-b-light
+                    transition-all duration-300;
+                    svg{ @apply text-2xl; }
+                }
+            }
+            tr.single-row{ @apply !grid-cols-1; }
+        }
+        table.dash_project_full tr { @apply grid-cols-7; }
+        table.dash_project_info tr { @apply grid-cols-8; }
+        table.dash_project_img tr { @apply grid-cols-7; }
+        table.dash_skills tr { @apply grid-cols-6; }
+    }
+    .modal_wrapper{
+        .main-modal{
+            @apply w-[360px] bg-dark text-white h-full
+            f-col gap-2;
+            .modal-header{
+                @apply pt-6 px-4 relative;
+                button{
+                    @apply absolute top-[25px] right-4;
+                }
+            }
+            .modal-body{
+                @apply p-4;
+                form{
+                    @apply f-col h-[calc(100vh-95px)];
+                    .form-action{
+                        @apply flex between-center gap-2;
+                    }
                 }
             }
         }
+        .input-wrap{
+            @apply overflow-hidden;
+            label{ @apply text-dark/80 font-bold; }
+            small{ @apply font-bold; }
+            .textarea ~ label{
+                @apply text-xs bg-light rounded-t-[15px]
+                top-0 translate-y-0
+                px-3 mx-2 mt-[2px] pt-2 w-[300px];
+            }
+            .textarea{ @apply pt-8; }
+            .textarea:focus ~ label{ @apply bg-dark; }
+        }
+        .input-photo{
+            @apply pt-8 bg-lightGray/50 rounded-[15px] f-col-center;
+            #myFile{
+                @apply opacity-0 absolute
+                p-0 m-0 h-full w-full
+                top-0 left-0 cursor-pointer;
+            }
+            .file-upload-label{
+                @apply !top-4 !left-0 px-4 text-sm text-light;
+            }
+            img{
+                @apply bg-light m-auto
+                max-h-72 h-full w-full
+                object-contain object-center
+                border border-white
+                rounded-[5px];
+            }
+            .upload-box, .upload-box-alt{
+                @apply  gap-2 rounded-b-[15px] bg-lightGray
+                transition-all duration-300 w-full;
+            }
+            .upload-box{ @apply py-4 f-col-center; }
+            .upload-box-alt{ @apply py-2 flex center; }
+        }
+        .input-photo:hover{
+            .upload-box, .upload-box-alt{ @apply bg-darkBlue/80; }
+        }
+        
     }
 /* END OF DASHBOARD STUFF */
 }
@@ -698,4 +793,38 @@
 
 .slick-slide{
     @apply cursor-pointer;
+}
+
+
+.spinner circle {
+    fill: none;
+    /* stroke: var(--light); */
+    stroke-width: 6;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash 1s ease-in-out infinite;
+  }
+  
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 1,200;
+      stroke-dashoffset: 0;
+    }
+  
+    50% {
+      stroke-dasharray: 90, 200;
+      stroke-dashoffset: -35px;
+    }
+  
+    100% {
+      stroke-dashoffset: -110px;
+    }
+  }
+
+.loading-bar{
+    @apply pointer-events-none cursor-default;
+}
+.loading-bar::after {
+    @apply content-[''] absolute top-0 left-0 w-[180%] h-full  bg-gradient-to-r from-transparent via-black/40 to-transparent  animate-loading;
 }

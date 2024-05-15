@@ -16,7 +16,6 @@ const ImageModal = ({sm_img, lg_img, altText, img_class}) => {
     </div>
   );
 };
-
 export default ImageModal;
 
 // https://aautio.github.io/react-modal-image/

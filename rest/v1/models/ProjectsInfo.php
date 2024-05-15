@@ -1,6 +1,6 @@
 <?php
 
-Class Projects {
+Class ProjectsInfo {
     public $project_aid;
     public $project_title;
     public $project_year;
@@ -69,7 +69,7 @@ Class Projects {
         try {
             $sql = "select * ";
             $sql .= "from {$this->tblProjects} ";
-            $sql .= "order by project_aid desc ";
+            $sql .= "order by project_aid asc ";
             // $sql .= "order by project_aid asc ";
             $query = $this->connection->query($sql);
         } catch (PDOException $ex) {
@@ -101,7 +101,6 @@ Class Projects {
             $sql .= "project_year = :project_year, ";
             $sql .= "project_description = :project_description, ";
             $sql .= "project_category = :project_category, ";
-            $sql .= "project_description = :project_description, ";
             $sql .= "project_publish_date = :project_publish_date, ";
             $sql .= "project_datetime = :project_datetime ";
             $sql .= "where project_aid  = :project_aid ";
@@ -111,7 +110,6 @@ Class Projects {
                 "project_year" => $this->project_year,
                 "project_description" => $this->project_description,
                 "project_category" => $this->project_category,
-                "project_description" => $this->project_description,
                 "project_publish_date" => $this->project_publish_date,
                 "project_datetime" => $this->project_datetime,
                 "project_aid" => $this->project_aid,
@@ -148,7 +146,7 @@ Class Projects {
             $sql .= "* ";
             $sql .= "from {$this->tblProjects} ";
             $sql .= "where project_title like :project_title ";
-            $sql .= "order by project_aid desc, ";
+            $sql .= "order by project_aid asc, ";
             $sql .= "project_title asc ";
             $query = $this->connection->prepare($sql);
             $query->execute([

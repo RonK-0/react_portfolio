@@ -1,13 +1,13 @@
 import React from "react";
 import { baseImgUrl } from "../../../helpers/functions-general";
 
-const SkillCards = ({skill__card_img, skill__card_label}) => {
+const SkillCards = ({skill__info}) => {
   return (
     <div className="skill__card">
       <div className="skill__card_img">
-        <img src={`${baseImgUrl}/${skill__card_img}`} alt="" />
+        <img src={`${baseImgUrl}/${skill__info.skill_image}`} alt="" />
       </div>
-      <p className="skill__card_label">{skill__card_label}</p>
+      <p className="skill__card_label">{skill__info.skill_title}</p>
     </div>
   );
 };

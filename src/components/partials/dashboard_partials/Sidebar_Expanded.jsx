@@ -1,12 +1,12 @@
 import React from "react";
-import { BiImageAdd } from "react-icons/bi";
+import { AiOutlineProject } from "react-icons/ai";
+import { BiGlobe, BiImageAdd } from "react-icons/bi";
 import { BsGridFill } from "react-icons/bs";
 import { FaBolt, FaCertificate } from "react-icons/fa";
+import { GiSkills } from "react-icons/gi";
 import { HiHome } from "react-icons/hi";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { SiStartrek } from "react-icons/si";
 import { Link } from "react-router-dom";
-import { GiSkills } from "react-icons/gi";
 
 const Sidebar_Expanded = ({ setShowSideBar, showSideBar }) => {
   const handleSideBarShow = () => setShowSideBar(!showSideBar);
@@ -27,45 +27,53 @@ const Sidebar_Expanded = ({ setShowSideBar, showSideBar }) => {
           </button>
           <div className="flex items-center relative">
             <Link to={"/"}>
-              <SiStartrek className="text-2xl animate-spin" />
+              <BiGlobe className="text-2xl animate-spin" />
             </Link>
           </div>
         </div>
 
         <div className="sidebar-links">
-          <button className="sidebar-link-item">
+          <Link className="sidebar-link-item" to={'/'}>
+            <BiGlobe className="text-2xl" />
+            <p>Go to Portfolio</p>
+          </Link>
+          <Link className="sidebar-link-item" to={'/database/'}>
             <HiHome className="text-2xl" />
-            <p>Home</p>
-          </button>
+            <p>Dashboard Home</p>
+          </Link>
         </div>
 
         <div className="sidebar-links">
-          <button className="sidebar-link-item">
-            <BsGridFill className="text-2xl" />
+          <Link className="sidebar-link-item" to={'/database/project/full'}>
+            <AiOutlineProject className="text-2xl" />
             <p>Projects</p>
-          </button>
-          <button className="sidebar-link-item">
+          </Link>
+          <Link className="sidebar-link-item" to={'/database/project/info'}>
+            <BsGridFill className="text-2xl" />
+            <p>Project Info</p>
+          </Link>
+          <Link className="sidebar-link-item" to={'/database/project/img/'}>
             <BiImageAdd className="text-2xl" />
             <p>Project Images</p>
-          </button>
-          <button className="sidebar-link-item">
+          </Link>
+          <Link className="sidebar-link-item" to={'/database/project/skills/'}>
             <GiSkills className="text-2xl" />
             <p>Project Skills</p>
-          </button>
+          </Link>
         </div>
 
         <div className="sidebar-links">
-          <button className="sidebar-link-item">
+          <Link className="sidebar-link-item" to={'/database/certificates/'}>
             <FaCertificate className="text-2xl" />
             <p>Certificates</p>
-          </button>
+          </Link>
         </div>
 
         <div className="sidebar-links">
-          <button className="sidebar-link-item">
+          <Link className="sidebar-link-item" to={'/database/skills/'}>
             <FaBolt className="text-2xl" />
             <p>Skills</p>
-          </button>
+          </Link>
         </div>
       </div>
     </div>

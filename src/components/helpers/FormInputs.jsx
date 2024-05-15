@@ -25,14 +25,14 @@ export const InputText = ({ label, ...props }) => {
     </>
   );
 };
-export const InputTextArea = ({ label, ...props }) => {
+export const InputTextArea = ({ label, cls, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <>
       <textarea
         {...field}
         {...props}
-        className={meta.touched && meta.error ? "error-msg" : ""}
+        className={`${meta.touched && meta.error ? "error-msg textarea" : "textarea"} ${cls}`}
         autoComplete="off"
       />
       <label
@@ -46,6 +46,24 @@ export const InputTextArea = ({ label, ...props }) => {
       ) : (
         null
       )}
+    </>
+  );
+};
+
+export const InputFileUpload = ({ label, ...props }) => {
+  const [field, meta] = useField(props);
+  return (
+    <>
+      <label
+        htmlFor={props.id || props.name}
+        className={"file-upload-label"}
+      >
+        {label} 
+      </label>
+      <input {...field} {...props} />
+      {meta.touched && meta.error ? (
+        <span className="error--msg">{meta.error}</span>
+      ) : null}
     </>
   );
 };

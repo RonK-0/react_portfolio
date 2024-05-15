@@ -1,8 +1,8 @@
 import React from "react";
-import { PageTitle } from "../../helpers/functions-general";
-import DashWrapper from "../../partials/dashboard_partials/DashWrapper";
+import { PageTitle } from "../../../helpers/functions-general";
+import DashWrapper from "../../../partials/dashboard_partials/DashWrapper";
 
-const DashboardProjectSkill = () => {
+const DashProjectSkill = () => {
   PageTitle("Project Skills - Portfolio Dashboard");
   
   return (
@@ -14,4 +14,4 @@ const DashboardProjectSkill = () => {
   );
 };
 
-export default DashboardProjectSkill;
+export default DashProjectSkill;

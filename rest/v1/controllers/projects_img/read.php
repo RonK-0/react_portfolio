@@ -2,20 +2,20 @@
 
 $conn = null;
 $conn = checkDbConnection();
-$projects = new Projects($conn);
+$projectsImg = new ProjectsImg($conn);
 $error = [];
 $returnData = [];
 
 // if (array_key_exists("feeid", $_GET)) {
-//     $projects->fee_aid = $_GET['feeid'];
-//     checkId($projects->fee_aid);
-//     $query = checkReadById($projects);
+//     $projectsImg->fee_aid = $_GET['feeid'];
+//     checkId($projectsImg->fee_aid);
+//     $query = checkReadById($projectsImg);
 //     http_response_code(200);
 //     getQueriedData($query);
 // }
 
 if (empty($_GET)) {
-    $query = checkReadAll($projects);
+    $query = checkReadAll($projectsImg);
     http_response_code(200);
     getQueriedData($query);
 }

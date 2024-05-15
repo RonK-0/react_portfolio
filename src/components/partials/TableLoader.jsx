@@ -5,9 +5,7 @@ const TableLoader = ({ count = null, cols = null }) => {
   let i;
 
   let innerBox = () => {
-    while (count % cols !== 0) {
-      count++;
-    }
+    while (count % cols !== 0) { count++; }
     return count;
   };
 

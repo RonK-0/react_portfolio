@@ -11,7 +11,29 @@ Header set Access-Control-Allow-Origin *
 
 ### SETTING ROLES ###
 
-RewriteRule ^projects$ controllers/projects/projects.php [L]
-RewriteRule ^projects/([0-9]+)$ controllers/projects/projects.php?projectid=$1 [L]
-RewriteRule ^projects/active/([0-9]+)$ controllers/projects/active.php?projectid=$1 [L]
-RewriteRule ^projects/search$ controllers/projects/search.php [L]
+RewriteRule ^projects/info$ controllers/projects_info/projects.php [L]
+RewriteRule ^projects/info/([0-9]+)$ controllers/projects_info/projects.php?projectid=$1 [L]
+RewriteRule ^projects/info/active/([0-9]+)$ controllers/projects_info/active.php?projectid=$1 [L]
+## RewriteRule ^projects/info/search$ controllers/projects_info/search.php [L]
+
+RewriteRule ^projects/img$ controllers/projects_img/projects_img.php [L]
+RewriteRule ^projects/img/([0-9]+)$ controllers/projects_img/projects_img.php?projectsimgid=$1 [L]
+RewriteRule ^projects/img/active/([0-9]+)$ controllers/projects_img/active.php?projectsimgid=$1 [L]
+
+
+## project skill
+
+
+RewriteRule ^projects/full$ controllers/projects_full/projects_full.php [L]
+## RewriteRule ^projects/full/([0-9]+)$ controllers/projects_full/projects_full.php?projectid=$1 [L]
+## RewriteRule ^projects/full/search$ controllers/projects_full/search.php [L]
+
+RewriteRule ^skills$ controllers/skills/skills.php [L]
+RewriteRule ^skills/([0-9]+)$ controllers/skills/skills.php?skillid=$1 [L]
+RewriteRule ^skills/active/([0-9]+)$ controllers/skills/active.php?skillid=$1 [L]
+
+
+## certificates
+
+
+RewriteRule ^upload.photo$ core/upload-photo.php [L]

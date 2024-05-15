@@ -51,8 +51,6 @@ const Home = () => {
 
   return (
     <>
-      {/* {showHeader ? <Header scrollToElement={scrollToElement} /> : ""} */}
-
       <Header
         scrollToElement={scrollToElement}
         pos={showHeader ? "top-0" : "-top-full"}

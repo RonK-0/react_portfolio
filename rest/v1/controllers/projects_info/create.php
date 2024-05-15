@@ -1,7 +1,7 @@
 <?php
 $conn = null;
 $conn = checkDbConnection();
-$projects = new Projects($conn);
+$projects = new ProjectsInfo($conn);
 if (array_key_exists("projectid", $_GET)) {
     checkEndpoint();
 }
@@ -18,4 +18,4 @@ $projects->project_datetime = date("Y-m-d H:i:s");
 // isNameExist($projects, $project->project_name);
 
 $query = checkCreate($projects);
-returnSuccess($projects, "project", $query);
+returnSuccess($projects, "projects", $query);

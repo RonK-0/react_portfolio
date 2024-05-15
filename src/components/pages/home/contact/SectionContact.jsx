@@ -47,7 +47,7 @@ const SectionContact = () => {
           <div className="input-wrap">
             <InputText
               label="EMAIL"
-              type="email"
+              type="text"
               name="contact_email"
               required
             />
@@ -61,12 +61,7 @@ const SectionContact = () => {
             />
           </div>
           <div className="input-wrap">
-            <InputTextArea
-              label="MESSAGE"
-              type="textarea"
-              name="contact_message"
-              required
-            />
+            <InputTextArea label="MESSAGE" name="contact_message" required />
           </div>
           <div className="f-col-center w-full">
             <button type="submit" className="btn btn--light">

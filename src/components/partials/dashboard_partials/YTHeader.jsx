@@ -1,7 +1,7 @@
 import React from "react";
+import { BiGlobe } from "react-icons/bi";
 import { FaBell } from "react-icons/fa";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { SiStartrek } from "react-icons/si";
+import { RxHamburgerMenu, RxMagnifyingGlass } from "react-icons/rx";
 import { Link } from "react-router-dom";
 
 const YTHeader = ({ setShowSideBar, showSideBar }) => {
@@ -24,7 +24,7 @@ const YTHeader = ({ setShowSideBar, showSideBar }) => {
           </button>
           <div className="flex items-center relative">
             <Link to={"/"} className="animate-spin">
-              <SiStartrek className="text-2xl" />
+              <BiGlobe className="text-2xl" />
             </Link>
           </div>
         </div>
@@ -42,15 +42,7 @@ const YTHeader = ({ setShowSideBar, showSideBar }) => {
 
               {/* Search icon on focus */}
               <div className="hidden-search-icon h-6 w-8 left-4 hidden">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  focusable="false"
-                >
-                  <path d="m20.87 20.17-5.59-5.59C16.35 13.35 17 11.75 17 10c0-3.87-3.13-7-7-7s-7 3.13-7 7 3.13 7 7 7c1.75 0 3.35-.65 4.58-1.71l5.59 5.59.7-.71zM10 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"></path>
-                </svg>
+                <RxMagnifyingGlass className='text-2xl'/>
               </div>
             </div>
 
@@ -59,30 +51,9 @@ const YTHeader = ({ setShowSideBar, showSideBar }) => {
               type="button"
               className="bg-raised_bg hover:bg-hover_bg rounded-tr-full rounded-br-full w-full max-w-16 h-10 f-col-center"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                focusable="false"
-                className="w-6 h-6"
-              >
-                <path d="m20.87 20.17-5.59-5.59C16.35 13.35 17 11.75 17 10c0-3.87-3.13-7-7-7s-7 3.13-7 7 3.13 7 7 7c1.75 0 3.35-.65 4.58-1.71l5.59 5.59.7-.71zM10 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"></path>
-              </svg>
+              <RxMagnifyingGlass className='text-2xl'/>
             </button>
           </div>
-          {/* Mic button */}
-          <button className="rounded-full min-w-10 min-h-10 flex center bg-raised_bg hover:bg-hover_bg">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              focusable="false"
-            >
-              <path d="M12 3c-1.66 0-3 1.37-3 3.07v5.86c0 1.7 1.34 3.07 3 3.07s3-1.37 3-3.07V6.07C15 4.37 13.66 3 12 3zm6.5 9h-1c0 3.03-2.47 5.5-5.5 5.5S6.5 15.03 6.5 12h-1c0 3.24 2.39 5.93 5.5 6.41V21h2v-2.59c3.11-.48 5.5-3.17 5.5-6.41z"></path>
-            </svg>
-          </button>
         </div>
         <div className="flex justify-end items-center gap-6">
           <div className="flex items-center gap-4">
@@ -96,7 +67,7 @@ const YTHeader = ({ setShowSideBar, showSideBar }) => {
           </div>
           {/* USER BUTTON */}
           <button className="w-8 h-8 rounded-full bg-transparent hover:bg-hover_bg overflow-hidden">
-            <img src="https://via.placeholder.com/88" alt="" className="" />
+            <div className="bg-termGreen/50 w-full h-full f-col-center text-xs">USER</div>
           </button>
         </div>
       </header>

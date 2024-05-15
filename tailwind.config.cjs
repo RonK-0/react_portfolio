@@ -33,6 +33,10 @@ export default {
         outline: "rgba(var(--outline), <alpha-value>)",
         searchBox_focus: "rgba(var(--searchBox_focus), <alpha-value>)",
         hover_bg: "rgba(var(--hover_bg), <alpha-value>)",
+
+        alert:'rgb(var(--alert) / <alpha-value>)',
+        cancel:'rgb(var(--cancel) / <alpha-value>)',
+        warning:'rgb(var(--warning) / <alpha-value>)',
       },
       backgroundImage:{
         // transparent_bg: "url('../dist/img/transparent.png')",
@@ -93,6 +97,13 @@ export default {
         'h6' : 'clamp(12px,3vw,14px)',
         'p'  : 'clamp(12px,3vw,16px)',
       },
+      lineClamp: {
+        6: '6',
+        7: '7',
+        8: '8',
+        9: '9',
+        10: '10',
+      },
       listStyleType: {
       //   none: 'none',
       //   circle: 'circle',
@@ -104,10 +115,21 @@ export default {
       animation: {
         // 'bannerSlide': 'bannerSlide 15s ease forwards',
         'blinking_cursor': 'blinking_cursor 1s linear infinite',
+
+        'rotate': "rotate 2s linear infinite",
+        'loading' : "loading 1.5s ease-in infinite",
       },
       keyframes: {
         // this borked
         // using direct CSS keyframes on input file base works
+
+        'rotate' : {
+          "100%" : {"transform":"rotate(360deg)"}
+        },
+        "loading": {
+            "0%" : { "transform": "translateX(-100%)" },
+          "100%" : { "transform": "translateX(100%)" },
+        },
       },
       boxShadow:{
         // 'top_button_shadow'     : '4px 4px 10px rgba(15, 15, 15, 0.2)',
@@ -153,6 +175,7 @@ export default {
         'height' : 'height',
         'spacing': 'margin, padding',
         'font-size' : 'font-size',
+        'color' : 'color',
       },
     },
   },

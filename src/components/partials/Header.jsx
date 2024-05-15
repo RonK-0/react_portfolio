@@ -17,6 +17,7 @@ const Header = ({scrollToElement, pos}) => {
             <Link to={"/"}>
               <Logo />
             </Link>
+            
             <nav className="desktop_nav">
               <ul>
                 <Navigation scrollToElement={scrollToElement} />

@@ -1,12 +1,12 @@
 <?php
 require '../../core/header.php';
 require '../../core/functions.php';
-require '../../models/Projects.php';
+require '../../models/Skillz.php';
 
 $conn = null;
 $conn = checkDbConnection();
 
-$projects = new Projects($conn);
+$skills = new Skillz($conn);
 
 $body = file_get_contents("php://input");
 $data = json_decode($body, true);
@@ -14,16 +14,16 @@ $data = json_decode($body, true);
 
 if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
     checkApiKey();
-    if (array_key_exists("projectsid", $_GET)) {
+    if (array_key_exists("skillid", $_GET)) {
 
         checkPayload($data);
-        $projects->project_aid = $_GET['projectsid'];
-        $projects->project_is_active = trim($data["isActive"]);
-        $projects->project_datetime = date("Y-m-d H:i:s");
-        checkId($projects->project_aid);
-        $query = checkActive($projects);
+        $skills->skill_aid = $_GET['skillid'];
+        $skills->skill_is_active = trim($data["isActive"]);
+        $skills->skill_datetime = date("Y-m-d H:i:s");
+        checkId($skills->skill_aid);
+        $query = checkActive($skills);
         http_response_code(200);
-        returnSuccess($projects, "project", $query);
+        returnSuccess($skills, "skills", $query);
     }
     checkEndpoint();
 }

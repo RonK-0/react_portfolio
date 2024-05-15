@@ -6,7 +6,7 @@ import YTHeader from "./YTHeader";
 const DashWrapper = ({ children }) => {
   const [showSideBar, setShowSideBar] = React.useState(false);
   return (
-    <div className={`dash_page relative bg-dark_bg min-h-screen`}>
+    <div className={`dash_page relative bg-dark_bg min-h-screen h-full`}>
       <YTHeader setShowSideBar={setShowSideBar} showSideBar={showSideBar} />
       <div className={`home_body relative w-full h-full bg-dark_bg`}>
         <div className={`mobile flex xl:hidden w-full xl:w-0`}>
@@ -16,7 +16,7 @@ const DashWrapper = ({ children }) => {
             showSideBar={showSideBar}
           />
           <main
-            className={`relative top-[-6px] left-[72px] ml-2 h-fit w-[calc(100%-72px)] ${
+            className={`relative top-[56px] left-[72px] ml-2 h-fit w-[calc(100%-72px)] ${
               showSideBar ? "overflow-hidden" : "overflow-y-visible"
             }`}
           >

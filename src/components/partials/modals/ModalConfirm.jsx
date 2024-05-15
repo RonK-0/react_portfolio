@@ -15,9 +15,7 @@ import {
 const ModalConfirm = ({ position, queryKey, endpoint }) => {
   const { dispatch, store } = React.useContext(StoreContext);
   const handleClose = () => dispatch(setIsActive(false));
-
   const isArchiving = store.isArchive;
-
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: (values) => queryData(endpoint, "put", values),
@@ -48,46 +46,44 @@ const ModalConfirm = ({ position, queryKey, endpoint }) => {
   return (
     <>
       <ModalWrapper position={position}>
-        <div className="modal-main max-w-[401px] w-full">
-          <div className="modal-header flex between-center bg-warning text-white p-3 px-4 rounded-t-md">
+        <div className="modal-main max-w-[401px] w-full rounded-[15px] overflow-hidden">
+          <div className="modal-header flex between-center bg-warning text-white p-3 px-4">
             <h4 className="mb-0 text-white">Confirm</h4>
             <button type="button" onClick={handleClose}>
               <LiaTimesSolid />
             </button>
           </div>
-          <div className="modal-body p-4 rounded-b-md bg-secondary text-content">
-            <div className="flex gap-4 items-center">
+          <div className="modal-body p-4 bg-dark text-content">
+            <div className="f-col-center gap-4 py-2">
               <PiArchive className="text-4xl text-warning mb-3" />
-              <div>
-                <h2 className="mb-2">
-                  {isArchiving === 0
-                    ? "Archive "
-                    : isArchiving === 1
-                    ? "Restore "
-                    : "[UNSPECIFIED FUNCTION]"}
-                  Record
-                </h2>
-                <p className="mb-5">
-                  Are you sure you want to
-                  {isArchiving === 0
-                    ? " archive "
-                    : isArchiving === 1
-                    ? " restore "
-                    : " [UNSPECIFIED FUNCTION] "}
-                  this record?
-                </p>
-              </div>
+              <h3 className="mb-2 text-white">
+                {isArchiving === 0
+                  ? "Archive "
+                  : isArchiving === 1
+                  ? "Restore "
+                  : "[UNSPECIFIED FUNCTION]"}
+                Record
+              </h3>
+              <p className="mb-5 text-white">
+                Are you sure you want to
+                {isArchiving === 0
+                  ? " archive "
+                  : isArchiving === 1
+                  ? " restore "
+                  : " [UNSPECIFIED FUNCTION] "}
+                this record?
+              </p>
             </div>
 
-            <div className="flex gap-2 justify-end">
+            <div className="flex gap-2 center">
               <button
-                className="btn btn--warning btn-form w-1/4"
+                className="btn btn--warning w-1/2"
                 onClick={handleConfirm}
               >
                 Confirm
               </button>
               <button
-                className="btn btn--cancel btn-form w-1/4"
+                className="btn btn--cancel w-1/2"
                 onClick={handleClose}
               >
                 Cancel
