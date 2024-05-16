@@ -1,6 +1,5 @@
 import React from "react";
 import SkillCards from "./SkillCards";
-import { StoreContext } from "../../../../store/StoreContext";
 import SpinnerFetching from "../../../partials/spinners/SpinnerFetching";
 import useQueryData from "../../../custom-hook/useQueryData";
 

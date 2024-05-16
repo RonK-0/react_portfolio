@@ -18,7 +18,7 @@ import useUploadPhoto from "../../../custom-hook/useUploadPhoto";
 import { FaUpload } from "react-icons/fa";
 import { baseImgUrl } from "../../../helpers/functions-general";
 
-const ModalAddSkills = ({ itemEdit }) => {
+const ModalAddCert = ({ itemEdit }) => {
   const { dispatch, store } = React.useContext(StoreContext);
   const handleClose = () => dispatch(setIsAdd(false));
   const queryClient = useQueryClient();
@@ -31,14 +31,14 @@ const ModalAddSkills = ({ itemEdit }) => {
   const mutation = useMutation({
     mutationFn: (values) =>
       queryData(
-        itemEdit ? `/v1/skills/${itemEdit.skill_aid}` : `/v1/skills`,
+        itemEdit ? `/v1/certs/${itemEdit.cert_aid}` : `/v1/certs`,
         itemEdit ? "put" : "post",
-        // `/v1/skills`,
+        // `/v1/certs`,
         // `post`,
         values
       ),
     onSuccess: (data) => {
-      queryClient.invalidateQueries({ queryKey: ["skills"] });
+      queryClient.invalidateQueries({ queryKey: ["certs"] });
       if (data.success) {
         dispatch(setIsAdd(false));
         dispatch(setSuccess(true));
@@ -53,14 +53,16 @@ const ModalAddSkills = ({ itemEdit }) => {
   });
 
   const initVal = {
-    skill_title: itemEdit ? itemEdit.skill_title : "",
-    skill_image: itemEdit ? itemEdit.skill_image : "",
-    skill_publish_date: itemEdit ? itemEdit.skill_publish_date : "",
+    cert_title: itemEdit ? itemEdit.cert_title : "",
+    cert_org: itemEdit ? itemEdit.cert_org : "",
+    cert_date: itemEdit ? itemEdit.cert_date : "",
+    cert_image: itemEdit ? itemEdit.cert_image : ""
   };
   const yupSchema = object({
-    skill_title: string().required("Title Required*"),
-    // skill_image: string().required("Image Required*"),
-    skill_publish_date: string().required("Publishing Date Required*"),
+    cert_title: string().required("Title Required*"),
+    cert_org: string().required("Organization Required*"),
+    cert_date: string().required("Certificate Date Required*")
+    // cert_image: string().required("Image Required*"),
   });
 
   return (
@@ -68,7 +70,7 @@ const ModalAddSkills = ({ itemEdit }) => {
       <div className="main-modal">
         <div className="modal-header">
           <h4>
-            {store.isEdit ? "Edit" : "New"} Skill Entry
+            {store.isEdit ? "Edit" : "New"} Certificate Entry
           </h4>
           <button onClick={handleClose}>
             <LiaTimesSolid />
@@ -82,25 +84,25 @@ const ModalAddSkills = ({ itemEdit }) => {
               uploadPhoto();
               mutation.mutate({
                 ...values,
-                skill_image:
-                  (itemEdit && itemEdit.skill_image === "") || photo
+                cert_image:
+                  (itemEdit && itemEdit.cert_image === "") || photo
                     ? photo === null
-                      ? itemEdit.skill_image
+                      ? itemEdit.cert_image
                       : photo.name
-                    : values.skill_image,
+                    : values.cert_image,
               });
             }}
           >
             <Form action="">
               <div className="grow overflow-y-auto">
                 <div className="input-wrap input-photo">
-                  {photo || (itemEdit && itemEdit.skill_image !== "") ? (
+                  {photo || (itemEdit && itemEdit.cert_image !== "") ? (
                     <img
                       src={
                         photo
                           ? URL.createObjectURL(photo) // preview
-                          : itemEdit.skill_image // check db
-                          ? baseImgUrl + "/" + itemEdit.skill_image
+                          : itemEdit.cert_image // check db
+                          ? baseImgUrl + "/" + itemEdit.cert_image
                           : null
                       }
                       alt="Photo"
@@ -113,7 +115,7 @@ const ModalAddSkills = ({ itemEdit }) => {
                   )}
 
                   {(photo !== null ||
-                    (itemEdit && itemEdit.skill_image !== "")) && (
+                    (itemEdit && itemEdit.cert_image !== "")) && (
                     <span className="upload-box-alt">
                       <FaUpload className="text-2xl" />
                       Replace the Current Image?
@@ -121,7 +123,7 @@ const ModalAddSkills = ({ itemEdit }) => {
                   )}
                   <InputFileUpload
                     label="Photo"
-                    name="skill_photo"
+                    name="cert_photo"
                     type="file"
                     id="myFile"
                     accept="image/*"
@@ -133,16 +135,23 @@ const ModalAddSkills = ({ itemEdit }) => {
 
                 <div className="input-wrap">
                   <InputText
-                    label="Skill Title"
+                    label="Certificate Title"
                     type="text"
-                    name="skill_title"
+                    name="cert_title"
                   />
                 </div>
                 <div className="input-wrap">
                   <InputText
-                    label="Skill Publishing Date"
+                    label="Certificate Organization"
                     type="text"
-                    name="skill_publish_date"
+                    name="cert_org"
+                  />
+                </div>
+                <div className="input-wrap">
+                  <InputText
+                    label="Certificate Date"
+                    type="text"
+                    name="cert_date"
                   />
                 </div>
               </div>
@@ -174,4 +183,4 @@ const ModalAddSkills = ({ itemEdit }) => {
   );
 };
 
-export default ModalAddSkills;
+export default ModalAddCert;

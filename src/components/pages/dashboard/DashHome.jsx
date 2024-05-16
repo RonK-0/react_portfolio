@@ -7,7 +7,7 @@ const DashHome = () => {
 
   return (
     <DashWrapper>
-      <div className="p-6 bg-dark_bg f-col-center text-center min-h-[94vh] select-none">
+      <div className="p-6 bg-dark_bg f-col-center text-center h-[calc(100vh-56px)] select-none">
         <h1>Dashboard Home</h1>
         <h5 className="italic opacity-70">Search, Notifications, and User Accounts are currently non-functional</h5>
       </div>

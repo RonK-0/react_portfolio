@@ -7,7 +7,8 @@ $error = [];
 $returnData = [];
 
 if ($_FILES['photo']) {
-    $photo = $_FILES["photo"]["name"];
+    // $photo = $_FILES["photo"]["name"];
+    $photo = strtolower($_FILES["photo"]["name"]); // convert photo name to lowercase
     // if (move_uploaded_file($_FILES["photo"]["tmp_name"], "../../../gla/img/" . $photo)) { // if online
     if (move_uploaded_file($_FILES["photo"]["tmp_name"], "../../../public/img/" . $photo)) { // if localhost
         $returnData["success"] = true;

@@ -57,11 +57,11 @@ const DashProjectImgTable = ({setItemEdit}) => {
   return (
     <>
       {isFetching && <SpinnerFetching />}
-      <table className="dash_project_img w-full">
+      <table className="dash_project_img ">
         <thead>
           <tr>
-            <th>Project's ID</th>
-            <th>Project's Title</th>
+            <th>Project ID</th>
+            <th>Project Title</th>
             <th>Project Img AID</th>
             <th>Has Img?</th>
             <th>Project Img Publish Date</th>

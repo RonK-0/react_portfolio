@@ -36,3 +36,5 @@ run.bat
 # ignore rest stuff
 #rest/*/*
 apiKey.php
+
+*.sql

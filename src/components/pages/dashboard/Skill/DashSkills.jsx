@@ -10,7 +10,6 @@ import Toast from "../../../partials/Toast";
 import DashSklllTable from './DashSklllTable'
 import ModalAddSkills from "./ModalAddSkills";
 
-
 const DashSkills = () => {
   PageTitle("Skills - Portfolio Dashboard");
 

@@ -1,12 +1,12 @@
 import React from "react";
-import { AiOutlineProject } from "react-icons/ai";
 import { BiGlobe, BiImageAdd } from "react-icons/bi";
 import { BsGridFill } from "react-icons/bs";
 import { FaBolt, FaCertificate } from "react-icons/fa";
 import { GiSkills } from "react-icons/gi";
-import { HiHome } from "react-icons/hi";
+import { HiDocument, HiHome } from "react-icons/hi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
+import Logo from "../svg/Logo";
 
 const Sidebar_Expanded = ({ setShowSideBar, showSideBar }) => {
   const handleSideBarShow = () => setShowSideBar(!showSideBar);
@@ -34,7 +34,8 @@ const Sidebar_Expanded = ({ setShowSideBar, showSideBar }) => {
 
         <div className="sidebar-links">
           <Link className="sidebar-link-item" to={'/'}>
-            <BiGlobe className="text-2xl" />
+            {/* <BiGlobe className="text-2xl" /> */}
+            <Logo/>
             <p>Go to Portfolio</p>
           </Link>
           <Link className="sidebar-link-item" to={'/database/'}>
@@ -44,8 +45,8 @@ const Sidebar_Expanded = ({ setShowSideBar, showSideBar }) => {
         </div>
 
         <div className="sidebar-links">
-          <Link className="sidebar-link-item" to={'/database/project/full'}>
-            <AiOutlineProject className="text-2xl" />
+          <Link className="sidebar-link-item" to={'/database/project/'}>
+            <HiDocument className="text-2xl" />
             <p>Projects</p>
           </Link>
           <Link className="sidebar-link-item" to={'/database/project/info'}>
@@ -63,7 +64,7 @@ const Sidebar_Expanded = ({ setShowSideBar, showSideBar }) => {
         </div>
 
         <div className="sidebar-links">
-          <Link className="sidebar-link-item" to={'/database/certificates/'}>
+          <Link className="sidebar-link-item" to={'/database/certs/'}>
             <FaCertificate className="text-2xl" />
             <p>Certificates</p>
           </Link>

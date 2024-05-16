@@ -2,60 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: 'Fira Code';
-    src: url('/fonts/FiraCode/firacode-variablefont_wght-webfont.woff2') format("woff2"),
-        url('/fonts/FiraCode/firacode-variablefont_wght-webfont.woff') format("woff");
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Fira Sans';
-    src: url('/fonts/FiraSans/firasans-regular-webfont.woff2') format("woff2"),
-        url('/fonts/FiraSans/firasans-regular-webfont.woff') format("woff");
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Lato-Black';
-    src: url('/fonts/Lato/lato-blakc-webfont.woff2') format('woff2'),
-         url('/fonts/Lato/lato-blakc-webfont.woff') format('woff');
-    font-display: swap;
-    font-weight: 900;
-}
-@font-face {
-    font-family: 'Lato-Bold';
-    src: url('/fonts/Lato/lato-bold-webfont.woff2') format('woff2'),
-         url('/fonts/Lato/lato-bold-webfont.woff') format('woff');
-    font-weight: 700;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Lato-Semibold';
-    src: url('/fonts/Lato/lato-semibold-webfont.woff2') format('woff2'),
-         url('/fonts/Lato/lato-semibold-webfont.woff') format('woff');
-    font-weight: 600;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Lato-Medium';
-    src: url('/fonts/Lato/lato-medium-webfont.woff2') format('woff2'),
-         url('/fonts/Lato/lato-medium-webfont.woff') format('woff');
-    font-weight: 500;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Lato';
-    src: url('/fonts/Lato/lato-regular-webfont.woff2') format('woff2'),
-         url('/fonts/Lato/lato-regular-webfont.woff') format('woff');
-    font-weight: 400;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Lato-Light';
-    src: url('/fonts/Lato/lato-light-webfont.woff2') format('woff2'),
-         url('/fonts/Lato/lato-light-webfont.woff') format('woff');
-    font-weight: 300;
-    font-display: swap;
-}
+/* START OF FONTS */
+    @font-face {
+        font-family: 'Fira Code';
+        src: url('/fonts/FiraCode/firacode-variablefont_wght-webfont.woff2') format("woff2"),
+            url('/fonts/FiraCode/firacode-variablefont_wght-webfont.woff') format("woff");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Fira Sans';
+        src: url('/fonts/FiraSans/firasans-regular-webfont.woff2') format("woff2"),
+            url('/fonts/FiraSans/firasans-regular-webfont.woff') format("woff");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Lato-Black';
+        src: url('/fonts/Lato/lato-blakc-webfont.woff2') format('woff2'),
+            url('/fonts/Lato/lato-blakc-webfont.woff') format('woff');
+        font-display: swap;
+        font-weight: 900;
+    }
+    @font-face {
+        font-family: 'Lato-Bold';
+        src: url('/fonts/Lato/lato-bold-webfont.woff2') format('woff2'),
+            url('/fonts/Lato/lato-bold-webfont.woff') format('woff');
+        font-weight: 700;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Lato-Semibold';
+        src: url('/fonts/Lato/lato-semibold-webfont.woff2') format('woff2'),
+            url('/fonts/Lato/lato-semibold-webfont.woff') format('woff');
+        font-weight: 600;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Lato-Medium';
+        src: url('/fonts/Lato/lato-medium-webfont.woff2') format('woff2'),
+            url('/fonts/Lato/lato-medium-webfont.woff') format('woff');
+        font-weight: 500;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Lato';
+        src: url('/fonts/Lato/lato-regular-webfont.woff2') format('woff2'),
+            url('/fonts/Lato/lato-regular-webfont.woff') format('woff');
+        font-weight: 400;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Lato-Light';
+        src: url('/fonts/Lato/lato-light-webfont.woff2') format('woff2'),
+            url('/fonts/Lato/lato-light-webfont.woff') format('woff');
+        font-weight: 300;
+        font-display: swap;
+    }
+/* END OF FONTS */
 
 @keyframes blinking_cursor {
     0%, 100% { opacity: 1; }
@@ -68,15 +70,9 @@
         --dark_bg: 15, 15, 15;
         --light_bg: 241, 241, 241;
         --menu_hover: 39, 39, 39;
-        --raised_bg: 33, 33, 33;
         --dark2: 18, 18, 18;
         --text_primary: 255, 255, 255;
-        --text_secondary: 170, 170, 170;
-        --outline: 48, 48, 48;
-    
-        --text_disabled: 113, 113, 113;
         --searchBox_focus: 62, 166, 255;
-        --hover_bg: 61, 61, 61;
         
         --warning: 177 130 47;
         --cancel: 127 127 127;
@@ -85,7 +81,7 @@
 
     html, body{ @apply scroll-smooth; }
     body{
-        @apply overflow-x-hidden font-text-lato text-light bg-dark_bg;
+        @apply overflow-x-hidden font-text-lato text-white bg-dark_bg;
     }
     input, textarea, button{ @apply outline-none focus:outline-none; }
     img, video, button{ @apply select-none; }
@@ -113,6 +109,7 @@
 }
 
 @layer components{
+/* START OF SCROLLBAR STUFF */
     /* Scrollbar Width */
     body::-webkit-scrollbar {
         @apply w-[15px];
@@ -153,7 +150,7 @@
     }
     /* Scrollbar Handle appears on hover */
     .custom-scroll_b:hover::-webkit-scrollbar-thumb{
-        @apply bg-text_secondary;
+        @apply bg-darkGray;
     }
     /* Scrollbar Buttons */
     .custom-scroll_b::-webkit-scrollbar-button:single-button {
@@ -166,6 +163,7 @@
     .custom-scroll_b:hover::-webkit-scrollbar-button:single-button:vertical:increment {
         @apply bg-down_arrow hover:bg-down_arrow_alt;
     }
+/* END OF SCROLLBAR STUFF */
 
 /* START OF REUSABLE CLASSES */
     .input-wrap{
@@ -178,7 +176,7 @@
         input, select, textarea, .textarea{
             @apply block w-full pb-2 pt-6 px-4 rounded-[15px]
             border-2 text-dark bg-light
-            focus:border-blueGray focus:bg-dark/10 focus:text-light
+            focus:border-blueGray focus:bg-dark/10 focus:text-white
             transition-all duration-200 resize-none
             custom-scroll_b;
         }
@@ -199,7 +197,7 @@
         input:focus ~ label,
         select:focus ~ label,
         textarea:focus ~ label
-        { @apply !text-light; }
+        { @apply !text-white; }
 
         input:not(:empty) ~ label,
         select:not(:empty) ~ label,
@@ -227,11 +225,9 @@
         }
         .sectionButton{
             @apply f-col-center cursor-pointer
-            absolute tx-a bottom-1 text-light hover:text-blueGray
+            absolute tx-a bottom-1 text-white hover:text-blueGray
             transition-all duration-500;
-            svg{
-                @apply text-h1 leading-h1 cursor-pointer;
-            }
+            svg{ @apply text-h1 leading-h1 cursor-pointer; }
         }
     }
 
@@ -242,14 +238,14 @@
     .tooltip:after, .tooltip-bottom:after{
         @apply p-0.5 px-1.5 rounded-md
         absolute content-[attr(data-tooltip)]
-        text-xs text-white tx-a
-        bg-lightGray scale-0 transition-transform;
+        text-xs text-white tx-a z-[2]
+        scale-0 transition-transform;
     }
     .tooltip:after{
-        @apply bottom-[calc(100%+10px)];
+        @apply bottom-[calc(100%+10px)] bg-lightGray;
     }
     .tooltip-bottom:after{
-        @apply top-[calc(100%+10px)];
+        @apply top-[calc(100%+10px)] bg-darkGray;
     }
 
     /* PDF MODAL */
@@ -266,9 +262,9 @@
     }
     .btn--light{
         @apply bg-light hover:bg-darkBlue
-        hover:text-light text-dark;
+        hover:text-white text-dark;
     }
-    .btn--darkBlue{ @apply bg-darkBlue text-light; }
+    .btn--darkBlue{ @apply bg-darkBlue text-white; }
     .btn--blueGray{ @apply bg-blueGray text-dark; }
     .btn-form{ @apply p-2 w-1/2 flex center gap-2; }
     .btn--cancel{ @apply bg-cancel text-white; }
@@ -278,6 +274,7 @@
     .btn--form{ @apply p-2 flex center gap-2; }
 /* END OF REUSABLE CLASSES */
     
+/* START OF PORTFOLIO STUFF */
     .header{
         @apply bg-dark py-4 fixed w-full z-40
         transition-all duration-300;
@@ -299,13 +296,13 @@
             }
         }
         ul>li>a{
-            @apply text-light hover:text-blueGray
+            @apply text-white hover:text-blueGray
             transition-all duration-300;
         }
         button.burger{
             @apply z-50 block md:hidden;
             svg{
-                @apply h-7 w-fit text-2xl text-light;
+                @apply h-7 w-fit text-2xl text-white;
             }
         }
     }
@@ -316,7 +313,7 @@
             @apply f-col-center md:flex-row flex-wrap md:flex-nowrap md:between-center gap-2;
             div{
                 @apply flex flex-col md:flex-row items-center gap-3;
-                svg{ @apply text-2xl text-light; }
+                svg{ @apply text-2xl text-white; }
             }
         }
     }
@@ -415,7 +412,7 @@
                 py-10 xl:py-6 px-8
                 transition-all duration-300;
                 .project__card_text{
-                    @apply text-light
+                    @apply text-white
                     w-full lg:w-1/2
                     f-col gap-4
                     *:select-none;
@@ -444,7 +441,7 @@
                         w-full h-full;
                         .mainSlider{
                             @apply h-full w-full;
-                            .slick-slide>div, .slick-slide>div>img{ @apply max-h-[450px]; }
+                            .slick-slide div, .slick-slide img{ @apply max-h-[475px] w-full object-contain; }
                         }
                         .thumbsSlider{
                             @apply w-full !h-fit;
@@ -452,14 +449,12 @@
                                 @apply !h-fit;
                                 .slick-track{
                                     @apply flex items-center gap-4;
-                                    img{ @apply h-16 lg:h-20; }
+                                    img{ @apply h-16 lg:h-20 object-cover aspect-square; }
                                 }
                             }
                         }
                     }
-                    img{
-                        @apply object-cover object-center aspect-square rounded-[15px];
-                    }
+                    img{ @apply object-center rounded-[15px]; }
                 }
             }
             .project__card:nth-child(even){
@@ -479,11 +474,11 @@
         }
         .education__cards::after{
             @apply absolute content-[''] txy-a
-            bg-light h-full w-2 rounded-full z-0
+            bg-light h-[95%] w-2 rounded-full z-0
             transition-all duration-300;
         }
         .education__card{
-            @apply bg-light hover:bg-darkBlue text-dark hover:text-light
+            @apply bg-light hover:bg-darkBlue text-dark hover:text-white
             w-full max-w-[850px] px-6 py-6 
             z-[1] mx-a rounded-[25px] select-none
             border-none border-0 border-transparent
@@ -491,7 +486,8 @@
             transition-all duration-300
             even:xl:-translate-x-1/4 odd:xl:translate-x-1/4;
             span{
-                @apply text-h3 leading-h3 font-bold text-wrap text-center
+                @apply text-h3 leading-h3 font-bold
+                text-wrap text-center
                 w-full sm:max-w-[185px];
             }
             div{
@@ -505,10 +501,10 @@
         .skill__cards{
             @apply flex flex-wrap center gap-10 transition-all duration-300;
             .skill__card{
-                @apply rounded-[25px] 
+                @apply rounded-[25px] relative z-[1]
                 size-[125px] sm:size-[150px] lg:size-[200px]
-                relative overflow-hidden
-                border-none border-transparent z-[1]
+                overflow-hidden select-none
+                border-none border-transparent
                 transition-all duration-300;
                 .skill__card_img{
                     @apply f-col-center w-full h-[70%] lg:h-full bg-light
@@ -526,7 +522,7 @@
                 }
             }
             .skill__card:hover{
-                .skill__card_img{ @apply lg:h-[85%]; }
+                .skill__card_img{ @apply lg:h-[85%]; img{@apply animate-rotate_slow;} }
                 .skill__card_label{ @apply lg:bottom-0; }
             }
         }
@@ -578,7 +574,7 @@
                     @apply object-contain scale-100 z-[3];
                 }
                 .cert__card_text{
-                    @apply text-light bg-darkBlue bottom-0 h-[84px];
+                    @apply text-white bg-darkBlue bottom-0 h-[84px];
                     h4{ @apply underline; }
                     p{ @apply block; }
                     h4, p { @apply text-[14px] leading-[14px] mb-1; }
@@ -589,7 +585,7 @@
 
     section.contact{
         .sectionContent{
-            @apply grid md:grid-cols-2 xl:grid-cols-[75%_25%] items-center gap-12 w-full;
+            @apply grid lg:grid-cols-2 xl:grid-cols-[75%_25%] items-center gap-12 w-full;
             form.contact_form{
                 @apply w-full;
                 .input-wrap{
@@ -610,14 +606,15 @@
         }
         .sectionContent::after{
             @apply absolute content-[''] bg-light
-            md:tx-a md:top-0 xl:left-3/4 xl:-translate-x-3/4
-            md:h-full md:w-0.5 
+            lg:tx-a lg:top-0 xl:left-3/4 xl:-translate-x-3/4
+            lg:h-full lg:w-0.5 
             rounded-full opacity-60
-            top-[62.5%] left-0
+            top-[64%] left-0
             w-full h-0.5
             transition-none;
         }
     }
+/* END OF PORTFOLIO STUFF */
 
 /* START OF DASHBOARD STUFF */
     .dash_page{
@@ -642,7 +639,7 @@
         .sidebar-expanded{
             svg { @apply fill-light_bg; }
             .sidebar-links{
-                @apply px-3 py-2.5 border-b border-text_secondary border-opacity-40;
+                @apply px-3 py-2.5 border-b border-light bg-dark_bg border-opacity-40;
                 h3{ @apply ft-md text-base; }
                 .sidebar-link-item{
                     @apply flex items-center gap-6 rounded-xl bg-transparent hover:bg-menu_hover w-full px-3.5 py-2;
@@ -659,8 +656,9 @@
             h3{ @apply underline text-termGreen; }
             .dash-new{ @apply flex items-center gap-2; }
         }
+
         table{
-            @apply f-col gap-2;
+            @apply f-col gap-2 w-full;
             td,th{ @apply select-none; }
             td:not(:last-of-type), th:not(:last-of-type) { @apply border-r border-r-white; }
             thead{ @apply bg-dark underline; }
@@ -688,7 +686,9 @@
         table.dash_project_full tr { @apply grid-cols-7; }
         table.dash_project_info tr { @apply grid-cols-8; }
         table.dash_project_img tr { @apply grid-cols-7; }
+        table.dash_project_skill tr { @apply grid-cols-8; }
         table.dash_skills tr { @apply grid-cols-6; }
+        table.dash_certs tr { @apply grid-cols-7; }
     }
     .modal_wrapper{
         .main-modal{
@@ -730,7 +730,7 @@
                 top-0 left-0 cursor-pointer;
             }
             .file-upload-label{
-                @apply !top-4 !left-0 px-4 text-sm text-light;
+                @apply !top-4 !left-0 px-4 text-sm text-white;
             }
             img{
                 @apply bg-light m-auto
@@ -786,7 +786,7 @@
     .txy-a{ @apply top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 }
 
     .scrollbar-gutter{
-        scrollbar-width: thin;
+        scrollbar-width: auto;
         scrollbar-gutter: stable;
     }
 }
@@ -794,7 +794,6 @@
 .slick-slide{
     @apply cursor-pointer;
 }
-
 
 .spinner circle {
     fill: none;

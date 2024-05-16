@@ -7,7 +7,7 @@ import Toast from "../../../partials/Toast";
 import DashWrapper from "../../../partials/dashboard_partials/DashWrapper";
 import ModalError from "../../../partials/modals/ModalError";
 import DashProjectImgTable from "./DashProjectImgTable";
-import ModalAddPortfolioImg from "./ModalAddPortfolioImg";
+import ModalAddProjImg from "./ModalAddProjImg";
 
 const DashProjectImg = () => {
   PageTitle("Project Images - Portfolio Dashboard");
@@ -33,7 +33,7 @@ const DashProjectImg = () => {
           <DashProjectImgTable setItemEdit={setItemEdit} />
         </div>
       </DashWrapper>
-      {store.isAdd && <ModalAddPortfolioImg itemEdit={itemEdit} />}
+      {store.isAdd && <ModalAddProjImg itemEdit={itemEdit} />}
       {store.success && <Toast />}
       {store.error && <ModalError position={"center"} />}
     </>

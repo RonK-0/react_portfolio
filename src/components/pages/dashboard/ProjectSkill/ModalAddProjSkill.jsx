@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Form, Formik } from "formik";
 import React from "react";
 import { LiaTimesSolid } from "react-icons/lia";
-import { object, string } from "yup";
+import { object, string, number } from "yup";
 import {
   setError,
   setIsAdd,
@@ -10,12 +10,13 @@ import {
   setSuccess,
 } from "../../../../store/StoreAction";
 import { StoreContext } from "../../../../store/StoreContext";
-import { InputText, InputTextArea } from "../../../helpers/FormInputs";
+import { InputFileUpload, InputText } from "../../../helpers/FormInputs";
 import { queryData } from "../../../helpers/queryData";
 import ModalWrapper from "../../../partials/modals/ModalWrapper";
 import SpinnerButton from "../../../partials/spinners/SpinnerButton";
+import { FaUpload } from "react-icons/fa";
 
-const ModalAddPortfolioInfo = ({ itemEdit }) => {
+const ModalAddProjSkill = ({ itemEdit }) => {
   const { dispatch, store } = React.useContext(StoreContext);
   const handleClose = () => dispatch(setIsAdd(false));
   const queryClient = useQueryClient();
@@ -23,16 +24,12 @@ const ModalAddPortfolioInfo = ({ itemEdit }) => {
   const mutation = useMutation({
     mutationFn: (values) =>
       queryData(
-        itemEdit
-          ? `/v1/projects/info/${itemEdit.project_aid}`
-          : `/v1/projects/info`,
+        itemEdit ? `/v1/projects/skill/${itemEdit.project_skill_aid}` : `/v1/projects/skill`,
         itemEdit ? "put" : "post",
-        // `/v1/projects/info`,
-        // `post`,
         values
       ),
     onSuccess: (data) => {
-      queryClient.invalidateQueries({ queryKey: ["projects/info"] });
+      queryClient.invalidateQueries({ queryKey: ["projects/skill"] });
       if (data.success) {
         dispatch(setIsAdd(false));
         dispatch(setSuccess(true));
@@ -47,25 +44,23 @@ const ModalAddPortfolioInfo = ({ itemEdit }) => {
   });
 
   const initVal = {
-    project_title: itemEdit ? itemEdit.project_title : "",
-    project_year: itemEdit ? itemEdit.project_year : "",
-    project_description: itemEdit ? itemEdit.project_description : "",
-    project_category: itemEdit ? itemEdit.project_category : "",
-    project_publish_date: itemEdit ? itemEdit.project_publish_date : "",
+    project_skill: itemEdit ? itemEdit.project_skill : "",
+    project_skill_label: itemEdit ? itemEdit.project_skill_label : "",
+    project_skill_publish_date: itemEdit ? itemEdit.project_skill_publish_date : "",
+    project_id: itemEdit ? itemEdit.project_id : "",
   };
   const yupSchema = object({
-    project_title: string().required("Title Required*"),
-    project_year: string().required("Year Required*"),
-    project_description: string().required("Description Required*"),
-    project_category: string().required("Category Required*"),
-    project_publish_date: string().required("Publishing Date Required*"),
+    project_skill: string().required("Skill Name Required*"),
+    project_skill_label: string().required("Skill Label Required*"),
+    project_skill_publish_date: string().required("Publishing Date Required*"),
+    project_id: number().required("Related Project ID Required*"),
   });
 
   return (
     <ModalWrapper>
       <div className="main-modal">
         <div className="modal-header">
-          <h4>{store.isEdit ? "Edit" : "New"} Project Info Entry</h4>
+          <h4>{store.isEdit ? "Edit" : "Add"} Project Skill</h4>
           <button onClick={handleClose}>
             <LiaTimesSolid />
           </button>
@@ -82,37 +77,30 @@ const ModalAddPortfolioInfo = ({ itemEdit }) => {
               <div className="grow overflow-y-auto">
                 <div className="input-wrap">
                   <InputText
-                    label="Project Title"
+                    label="Skill Name"
                     type="text"
-                    name="project_title"
+                    name="project_skill"
                   />
                 </div>
                 <div className="input-wrap">
                   <InputText
-                    label="Project Year"
+                    label="Skill Label"
                     type="text"
-                    name="project_year"
-                  />
-                </div>
-                <div className="input-wrap">
-                  <InputTextArea
-                    label="Project Description"
-                    name="project_description"
-                    cls="h-[200px]"
+                    name="project_skill_label"
                   />
                 </div>
                 <div className="input-wrap">
                   <InputText
-                    label="Project Category"
+                    label="Skill Publishing Date"
                     type="text"
-                    name="project_category"
+                    name="project_skill_publish_date"
                   />
                 </div>
                 <div className="input-wrap">
                   <InputText
-                    label="Project Publishing Date"
+                    label="Related Project's ID"
                     type="text"
-                    name="project_publish_date"
+                    name="project_id"
                   />
                 </div>
               </div>
@@ -144,4 +132,4 @@ const ModalAddPortfolioInfo = ({ itemEdit }) => {
   );
 };
 
-export default ModalAddPortfolioInfo;
+export default ModalAddProjSkill;

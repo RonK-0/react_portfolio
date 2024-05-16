@@ -8,7 +8,7 @@ import Toast from "../../../partials/Toast";
 import DashWrapper from "../../../partials/dashboard_partials/DashWrapper";
 import ModalError from "../../../partials/modals/ModalError";
 import DashProjectInfoTable from "./DashProjectInfoTable";
-import ModalAddPortfolioInfo from "./ModalAddPortfolioInfo";
+import ModalAddProjInfo from "./ModalAddProjInfo";
 
 const DashProjectInfo = () => {
   PageTitle("Projects Info - Portfolio Dashboard");
@@ -47,7 +47,7 @@ const DashProjectInfo = () => {
           />
         </div>
       </DashWrapper>
-      {store.isAdd && <ModalAddPortfolioInfo itemEdit={itemEdit} />}
+      {store.isAdd && <ModalAddProjInfo itemEdit={itemEdit} />}
       {store.success && <Toast />}
       {store.error && <ModalError position={"center"} />}
     </>

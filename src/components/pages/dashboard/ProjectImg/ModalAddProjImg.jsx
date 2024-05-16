@@ -18,7 +18,7 @@ import useUploadPhoto from "../../../custom-hook/useUploadPhoto";
 import { FaUpload } from "react-icons/fa";
 import { baseImgUrl } from "../../../helpers/functions-general";
 
-const ModalAddPortfolioImg = ({ itemEdit }) => {
+const ModalAddProjImg = ({ itemEdit }) => {
   const { dispatch, store } = React.useContext(StoreContext);
   const handleClose = () => dispatch(setIsAdd(false));
   const queryClient = useQueryClient();
@@ -62,8 +62,6 @@ const ModalAddPortfolioImg = ({ itemEdit }) => {
     project_img_publish_date: string().required("Publishing Date Required*"),
     project_id: number().required("Related Project ID Required*"),
   });
-
-  console.log(photo)
 
   return (
     <ModalWrapper>
@@ -121,7 +119,7 @@ const ModalAddPortfolioImg = ({ itemEdit }) => {
                   )}
                   <InputFileUpload
                     label="Photo"
-                    name="projects_img"
+                    name="project_photo"
                     type="file"
                     id="myFile"
                     accept="image/*"
@@ -173,4 +171,4 @@ const ModalAddPortfolioImg = ({ itemEdit }) => {
   );
 };
 
-export default ModalAddPortfolioImg;
+export default ModalAddProjImg;

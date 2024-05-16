@@ -61,9 +61,8 @@ Class ProjectsImg {
     public function readAll()
     {
         try {
-            // $sql = "select * ";
-            // $sql .= "from {$this->tblProjectsImg} ";
-            $sql = "select ";
+            $sql = "select  ";
+            // $sql .= " * from {$this->tblProjectsImg} ";
             $sql .= "{$this->tblProjects}.project_aid, ";
             $sql .= "{$this->tblProjects}.project_title, ";
             $sql .= "{$this->tblProjectsImg}.* ";

@@ -1,12 +1,12 @@
 <?php
 require '../../core/header.php';
 require '../../core/functions.php';
-require '../../models/ProjectsFull.php';
+require '../../models/Certs.php';
 // check database connection
 $conn = null;
 $conn = checkDbConnection();
 // make instance of classes
-$projects = new ProjectsFull($conn);
+$certs = new Certs($conn);
 // get payload
 $body = file_get_contents("php://input");
 $data = json_decode($body, true);
@@ -16,9 +16,9 @@ if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
     checkApiKey();
     checkPayload($data);
     // get data
-    $projects->project_full_search = $data["searchValue"];
-    checkKeyword($projects->projects_full_search);
-    $query = checkSearch($projects);
+    $certs->cert_search = $data["searchValue"];
+    checkKeyword($certs->cert_search);
+    $query = checkSearch($certs);
     http_response_code(200);
     getQueriedData($query);
     // return 404 error if endpoint not available

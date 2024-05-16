@@ -6,23 +6,30 @@ import {
   setIsAdd,
   setIsArchive,
   setIsDelete,
-  setIsEdit
+  setIsEdit,
 } from "../../../../store/StoreAction";
 import { StoreContext } from "../../../../store/StoreContext";
+import useQueryData from "../../../custom-hook/useQueryData";
 import NoData from "../../../partials/NoData";
 import TableLoader from "../../../partials/TableLoader";
 import ModalConfirm from "../../../partials/modals/ModalConfirm";
 import ModalDelete from "../../../partials/modals/ModalDelete";
 import SpinnerFetching from "../../../partials/spinners/SpinnerFetching";
 
-const DashProjectInfoTable = ({
-  isLoading,
-  project,
-  isFetching,
-  setItemEdit,
-}) => {
+const DashCertsTable = ({ setItemEdit }) => {
   const { dispatch, store } = useContext(StoreContext);
   const [id, setId] = useState("");
+
+  const {
+    isLoading,
+    isFetching,
+    error,
+    data: certs,
+  } = useQueryData(
+    "/v1/certs", // endpoint
+    "get", // method
+    "certs"
+  );
 
   const handleEdit = (item) => {
     setItemEdit(item);
@@ -32,33 +39,31 @@ const DashProjectInfoTable = ({
 
   const handleArchive = (item) => {
     dispatch(setIsActive(true));
-    setId(item.project_aid);
+    setId(item.cert_aid);
     dispatch(setIsArchive(0));
   };
 
   const handleRestore = (item) => {
     dispatch(setIsActive(true));
-    setId(item.project_aid);
+    setId(item.cert_aid);
     dispatch(setIsArchive(1));
   };
 
   const handleDelete = (item) => {
     dispatch(setIsDelete(true));
-    setId(item.project_aid);
+    setId(item.cert_aid);
   };
-
   return (
     <>
       {isFetching && <SpinnerFetching />}
-      <table className="dash_project_info">
+      <table className="dash_certs">
         <thead>
           <tr>
-            <th>Project ID</th>
-            <th>Project Title</th>
-            <th>Project Year</th>
-            <th>Project Description</th>
-            <th>Project Category</th>
-            <th>Project Publish Date</th>
+            <th>Cert ID</th>
+            <th>Cert Title</th>
+            <th>Cert Organization</th>
+            <th>Cert Date</th>
+            <th>Has Image?</th>
             <th>Visible?</th>
             <th>Actions</th>
           </tr>
@@ -66,34 +71,33 @@ const DashProjectInfoTable = ({
         <tbody>
           {isLoading && (
             <tr className="single-row">
-              <td colSpan={7}>
+              <td colSpan={6}>
                 <TableLoader count="20" cols="4" />
               </td>
             </tr>
           )}
 
-          {project?.data.length === 0 && (
+          {certs?.data.length === 0 && (
             <tr className="single-row">
-              <td colSpan={7}>
+              <td colSpan={6}>
                 <NoData />
               </td>
             </tr>
           )}
-          {project?.data.map((item, key) => (
+          {certs?.data.map((item, key) => (
             <tr
               // onDoubleClick={() => handleShowInfo(item)}
               key={key}
             >
-              <td>{item.project_aid}</td>
-              <td>{item.project_title}</td>
-              <td>{item.project_year}</td>
-              <td>{item.project_description}</td>
-              <td>{item.project_category}</td>
-              <td>{item.project_publish_date}</td>
-              <td>{item.project_is_active === 1 ? "Yes" : "No"}</td>
+              <td>{item.cert_aid}</td>
+              <td>{item.cert_title}</td>
+              <td>{item.cert_org}</td>
+              <td>{item.cert_date}</td>
+              <td>{(item.cert_image !== "" && "Yes") || "No"}</td>
+              <td>{item.cert_is_active === 1 ? "Yes" : "No"}</td>
               <td className="table-action">
                 <ul>
-                  {item.project_is_active ? (
+                  {item.cert_is_active ? (
                     <>
                       <li>
                         <button
@@ -145,19 +149,19 @@ const DashProjectInfoTable = ({
       {store.isActive && (
         <ModalConfirm
           position={"center"}
-          queryKey={"projects/info"}
-          endpoint={`/v1/projects/info/active/${id}`}
+          queryKey={"certs"}
+          endpoint={`/v1/certs/active/${id}`}
         />
       )}
       {store.isDelete && (
         <ModalDelete
           position={"center"}
-          queryKey={"projects/info"}
-          endpoint={`/v1/projects/info/${id}`}
+          queryKey={"certs"}
+          endpoint={`/v1/certs/${id}`}
         />
       )}
     </>
   );
 };
 
-export default DashProjectInfoTable;
+export default DashCertsTable;

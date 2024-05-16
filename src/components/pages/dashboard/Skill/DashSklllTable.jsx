@@ -51,12 +51,12 @@ const DashSklllTable = ({ isLoading, skills, isFetching, setItemEdit }) => {
   return (
     <>
       {isFetching && <SpinnerFetching />}
-      <table className="dash_skills w-full">
+      <table className="dash_skills">
         <thead>
           <tr>
             <th>Skill ID</th>
             <th>Skill Title</th>
-            <th>Has Image</th>
+            <th>Has Image?</th>
             <th>Skill Publish Date</th>
             <th>Visible?</th>
             <th>Actions</th>

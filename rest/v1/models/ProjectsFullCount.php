@@ -1,28 +1,28 @@
 <?php
 
-Class ProjectsFull {
+Class ProjectsFullCount {
     public $project_full_aid;
     public $project_full_title;
     public $project_full_year;
     public $project_full_description;
     public $project_full_category;
-    public $project_full_imgs;
-    public $project_full_skills;
+    public $project_full_imgs_count;
+    public $project_full_skills_count;
 
     public $project_full_search;
 
     public $connection;
-    public $tblProjectsFull;
+    public $tblProjectsFullCount;
 
     public function __construct($db){
         $this->connection = $db;
-        $this->tblProjectsFull = "portfolio_projects_full";
+        $this->tblProjectsFullCount = "portfolio_projects_full_count";
     }
     public function readAll()
     {
         try {
             $sql = "select * ";
-            $sql .= "from {$this->tblProjectsFull} ";
+            $sql .= "from {$this->tblProjectsFullCount} ";
             $sql .= "order by project_aid asc ";
             // $sql .= "order by project_aid asc ";
             $query = $this->connection->query($sql);

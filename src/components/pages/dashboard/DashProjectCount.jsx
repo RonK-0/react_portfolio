@@ -7,8 +7,8 @@ import TableLoader from "../../partials/TableLoader";
 import SpinnerFetching from "../../partials/spinners/SpinnerFetching";
 import { Link } from "react-router-dom";
 
-const DashProjectFull = () => {
-  PageTitle("Projects Full Info - Portfolio Dashboard");
+const DashProjCount = () => {
+  PageTitle("Projects - Portfolio Dashboard");
 
   const {
     isLoading,
@@ -16,9 +16,9 @@ const DashProjectFull = () => {
     error,
     data: projectFull,
   } = useQueryData(
-    "/v1/projects/full", // endpoint
+    "/v1/projects/count", // endpoint
     "get", // method
-    "projects/full"
+    "projects/count"
   );
 
   return (
@@ -26,8 +26,8 @@ const DashProjectFull = () => {
       <DashWrapper>
         <div className="py-6 pl-2 pr-4">
           <div className="dash_heading">
-            <h3>Projects Full Info</h3>
-            <Link to={"/database/project/"} className="btn btn--blueGray text-white">Hide Image File Names & Skills</Link>
+            <h3>Projects</h3>
+            <Link to={"/database/project/full"} className="btn btn--blueGray text-white">Show Image File Names & Skills</Link>
           </div>
 
       {isFetching && <SpinnerFetching />}
@@ -66,8 +66,8 @@ const DashProjectFull = () => {
               <td>{item.project_year}</td>
               <td>{item.project_description}</td>
               <td>{item.project_category}</td>
-              <td>{item.project_imgs}</td>
-              <td>{item.project_skills}</td>
+              <td>{item.project_imgs_count} Image(s)</td>
+              <td>{item.project_skills_count} Skill(s)</td>
             </tr>
           ))}
         </tbody>
@@ -78,4 +78,4 @@ const DashProjectFull = () => {
   );
 };
 
-export default DashProjectFull;
+export default DashProjCount;

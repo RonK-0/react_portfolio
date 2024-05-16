@@ -16,7 +16,8 @@ export default {
       colors:{
         darkBlue: "#001427",
         blueGray: "#81A2BD",
-        light: "#F6F6F6",
+        // light: "#F6F6F6",
+        light: "#EAEAEA",
         dark: "#202020",
         darkGray: "#343434",
         lightGray: "#828282",
@@ -26,14 +27,8 @@ export default {
         dark2: "rgba(var(--dark2), <alpha-value>)",
         light_bg: "rgba(var(--light_bg), <alpha-value>)",
         menu_hover: "rgba(var(--menu_hover), <alpha-value>)",
-        raised_bg: "rgba(var(--raised_bg), <alpha-value>)",
         text_primary: "rgba(var(--text_primary), <alpha-value>)",
-        text_secondary: "rgba(var(--text_secondary), <alpha-value>)",
-        text_disabled: "rgba(var(--text_disabled), <alpha-value>)",
-        outline: "rgba(var(--outline), <alpha-value>)",
         searchBox_focus: "rgba(var(--searchBox_focus), <alpha-value>)",
-        hover_bg: "rgba(var(--hover_bg), <alpha-value>)",
-
         alert:'rgb(var(--alert) / <alpha-value>)',
         cancel:'rgb(var(--cancel) / <alpha-value>)',
         warning:'rgb(var(--warning) / <alpha-value>)',
@@ -116,6 +111,7 @@ export default {
         // 'bannerSlide': 'bannerSlide 15s ease forwards',
         'blinking_cursor': 'blinking_cursor 1s linear infinite',
 
+        'rotate_slow': "rotate 6s linear infinite",
         'rotate': "rotate 2s linear infinite",
         'loading' : "loading 1.5s ease-in infinite",
       },
