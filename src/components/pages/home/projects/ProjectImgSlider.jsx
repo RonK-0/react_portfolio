@@ -43,6 +43,7 @@ const ProjectImgSlider = ({ project_aid }) => {
     autoplaySpeed: 3000,
     fade: true,
     focusOnSelect: true,
+    adaptiveHeight: true
   };
   const settingsThumbs = {
     className: "thumbsSlider",

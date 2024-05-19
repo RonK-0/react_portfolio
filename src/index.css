@@ -170,7 +170,7 @@
         @apply mb-4 relative;
         label{
             @apply mb-1 px-4 block text-base absolute ty-a 
-            text-dark/30 font-bold
+            text-dark/30 font-bold select-none
             transition-all duration-200 pointer-events-none;
         }
         input, select, textarea, .textarea{
@@ -438,10 +438,12 @@
                     @apply w-full lg:w-1/2 h-full -order-1;
                     .slider-container{
                         @apply flex flex-wrap lg:flex-wrap center gap-4
-                        w-full h-full;
+                        w-full h-full center;
                         .mainSlider{
                             @apply h-full w-full;
-                            .slick-slide div, .slick-slide img{ @apply max-h-[475px] w-full object-contain; }
+                            .slick-slide div,
+                            .slick-slide img{ 
+                                @apply max-h-[415px] h-full w-full object-contain rounded-[15px]; }
                         }
                         .thumbsSlider{
                             @apply w-full !h-fit;
@@ -449,12 +451,12 @@
                                 @apply !h-fit;
                                 .slick-track{
                                     @apply flex items-center gap-4;
-                                    img{ @apply h-16 lg:h-20 object-cover aspect-square; }
+                                    img{ @apply h-16 lg:h-20 object-cover aspect-square rounded-[10px]; }
                                 }
                             }
                         }
                     }
-                    img{ @apply object-center rounded-[15px]; }
+                    img{ @apply object-center; }
                 }
             }
             .project__card:nth-child(even){

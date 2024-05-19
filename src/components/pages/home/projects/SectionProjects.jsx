@@ -19,12 +19,18 @@ const SectionProjects = () => {
       {isLoading ? (
         <SpinnerFetching />
       ) : (
+        projects_skill?.data.length !== 0 && (
         projects_skill?.data.map(
           (item, key) =>
             item.project_is_active === 1 && (
               <ProjectCards project_info={item} key={key} />
             )
         )
+      )  || (
+        <h3 className="text-white opacity-80 italic text-center">
+          No Projects Available at the Moment
+        </h3>
+      )
       )}
       {/* <ProjectCards/> */}
     </div>

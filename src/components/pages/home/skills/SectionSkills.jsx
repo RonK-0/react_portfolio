@@ -20,12 +20,18 @@ const SectionSkills = () => {
       {isLoading ? (
         <SpinnerFetching />
       ) : (
-        skill?.data.map((item, key) => (
-          (item.skill_is_active === 1 && (
-            <SkillCards skill__info={item} key={key} />
-          ))
-          
-        ))
+        skill?.data.length !== 0 && (
+        skill?.data.map(
+          (item, key) =>
+            (item.skill_is_active === 1 && (
+              <SkillCards skill__info={item} key={key} />
+            ))
+        )
+      ) || (
+        <h3 className="text-white opacity-80 italic text-center">
+          No Skills Available at the Moment
+        </h3>
+      )
       )}
     </div>
   );
