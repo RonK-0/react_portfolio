@@ -16,7 +16,7 @@ const SectionAbout = () => {
   return (
     <div className="sectionContent aboutContent">
       <div className="aboutImg">
-        <img src={`${baseImgUrl}/Pic.png`} alt="" />
+        <img src={`${baseImgUrl}/Pic.webp`} alt="" />
       </div>
       <div className="aboutText">
         <div>

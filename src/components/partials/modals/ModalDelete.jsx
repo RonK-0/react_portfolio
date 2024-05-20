@@ -27,7 +27,8 @@ const ModalDelete = ({ position, queryKey, endpoint }) => {
         dispatch(setMessage("Record Successfully Deleted"));
       } else {
         dispatch(setError(true));
-        dispatch(setMessage("Delete failed!"));
+        // dispatch(setMessage("Delete failed!"));
+        dispatch(setMessage(data.error));
       }
     },
   });

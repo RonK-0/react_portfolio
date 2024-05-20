@@ -38,7 +38,8 @@ const ModalAddProjSkill = ({ itemEdit }) => {
         );
       } else {
         dispatch(setError(true));
-        dispatch(setMessage(`Failed updating database.`));
+        // dispatch(setMessage(`Failed updating database.`));
+        dispatch(setMessage(data.error));
       }
     },
   });

@@ -23,6 +23,10 @@ import { IoLogoFirebase } from "react-icons/io5";
 import { GrMysql } from "react-icons/gr";
 import { DiDotnet } from "react-icons/di";
 import { SiMicrosoftsqlserver } from "react-icons/si";
+import { SiPhp } from "react-icons/si";
+import { SiSass } from "react-icons/si";
+import { SiTailwindcss } from "react-icons/si";
+import { BsQrCode } from "react-icons/bs";
 import useQueryData from "../../../custom-hook/useQueryData";
 
 const ProjectSkills = ({ project_aid }) => {
@@ -43,8 +47,20 @@ const ProjectSkills = ({ project_aid }) => {
       case "android":
         icon = <FaAndroid />;
         break;
+      case "qrcode":
+        icon = <BsQrCode />;
+        break;
       case "css":
         icon = <FaCss3Alt />;
+        break;
+      case "sass":
+        icon = <SiSass />;
+        break;
+      case "tailwind":
+        icon = <SiTailwindcss />;
+        break;
+      case "tailwindcss":
+        icon = <SiTailwindcss />;
         break;
       case "github":
         icon = <FaGithub />;
@@ -57,6 +73,9 @@ const ProjectSkills = ({ project_aid }) => {
         break;
       case "networking":
         icon = <FaNetworkWired />;
+        break;
+      case "php":
+        icon = <SiPhp />;
         break;
       case "python":
         icon = <FaPython />;

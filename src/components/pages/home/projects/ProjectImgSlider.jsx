@@ -126,7 +126,7 @@ const ProjectImgSlider = ({ project_aid }) => {
               asNavFor={thumbsSlider}
               ref={(slider) => setMainSlider(slider)}
             >
-              <h2>No Images Available At the Moment</h2>
+              <h2>No Images Available at the Moment</h2>
             </Slider>
             <Slider
               {...settingsThumbs}

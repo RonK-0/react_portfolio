@@ -6,7 +6,7 @@ import { StoreContext } from "../../../store/StoreContext";
 import { setError } from "../../../store/StoreAction";
 
 const ModalError = ({ position }) => {
-  const { dispatch } = React.useContext(StoreContext);
+  const { dispatch, store } = React.useContext(StoreContext);
   const handleErrorClose = ()=>{
     dispatch(setError(false));
   }
@@ -23,7 +23,7 @@ const ModalError = ({ position }) => {
           <div className="modal-body p-4 bg-dark text-content text-center">
             <BiErrorCircle className="text-4xl mx-a text-red-500 mb-3" />
             <h3 className="mb-2 text-white">Server Error</h3>
-            <p className="mb-5 text-white">Something went wrong!</p>
+            <p className="mb-5 text-white">{store.message}</p>
             <button className="btn bg-red-500 text-white w-full" onClick={handleErrorClose}>
               Okay
             </button>

@@ -19,9 +19,7 @@ export const InputText = ({ label, ...props }) => {
       </label>
       {meta.touched && meta.error ? (
         <small className="error-msg">{meta.error}</small>
-      ) : (
-        null
-      )}
+      ) : null}
     </>
   );
 };
@@ -32,7 +30,9 @@ export const InputTextArea = ({ label, cls, ...props }) => {
       <textarea
         {...field}
         {...props}
-        className={`${meta.touched && meta.error ? "error-msg textarea" : "textarea"} ${cls}`}
+        className={`${
+          meta.touched && meta.error ? "error-msg textarea" : "textarea"
+        } ${cls}`}
         autoComplete="off"
       />
       <label
@@ -43,9 +43,36 @@ export const InputTextArea = ({ label, cls, ...props }) => {
       </label>
       {meta.touched && meta.error ? (
         <small className="error-msg">{meta.error}</small>
-      ) : (
-        null
-      )}
+      ) : null}
+    </>
+  );
+};
+
+export const InputSelect = ({ label, onChange = null, ...props }) => {
+  const [field, meta] = useField(props);
+
+  return (
+    <>
+      <select
+        {...field}
+        {...props}
+        className={meta.touched && meta.error ? "error-msg" : null}
+        onChange={(e) => {
+          onChange !== null && onChange(e);
+          field.onChange(e);
+        }}
+      />
+
+      {meta.touched && meta.error ? (
+        <span className="error-msg">{meta.error}</span>
+      ) : null}
+
+      <label
+        htmlFor={props.id || props.name}
+        className={meta.touched && meta.error ? "custom error-msg" : "custom"}
+      >
+        {label}
+      </label>
     </>
   );
 };
@@ -54,11 +81,8 @@ export const InputFileUpload = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <>
-      <label
-        htmlFor={props.id || props.name}
-        className={"file-upload-label"}
-      >
-        {label} 
+      <label htmlFor={props.id || props.name} className={"file-upload-label"}>
+        {label}
       </label>
       <input {...field} {...props} />
       {meta.touched && meta.error ? (

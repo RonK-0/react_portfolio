@@ -208,6 +208,11 @@
         small{
             @apply absolute top-2 right-6 text-red-500 italic text-xs;
         }
+        select{
+            option{
+                @apply bg-dark
+            }
+        }
     }
 
     /* SECTIONS */
@@ -402,6 +407,16 @@
     }
 
     section.projects{
+        .project_cards_parent{
+            .project_selector{
+                .project_selector_button{
+                    @apply py-2 px-4 rounded-[5px]
+                    bg-darkGray hover:bg-blueGray
+                    transition-all duration-300;
+                }
+                button.active{ @apply bg-darkBlue underline; }
+            }
+        }
         .project__cards{
             @apply f-col gap-12;
             
@@ -443,7 +458,7 @@
                             @apply h-full w-full;
                             .slick-slide div,
                             .slick-slide img{ 
-                                @apply max-h-[415px] h-full w-full object-contain rounded-[15px]; }
+                                @apply max-h-[350px] h-full w-full object-contain rounded-[15px]; }
                         }
                         .thumbsSlider{
                             @apply w-full !h-fit;
@@ -714,7 +729,7 @@
         }
         .input-wrap{
             @apply overflow-hidden;
-            label{ @apply text-dark/80 font-bold; }
+            label{ @apply !text-dark/80 font-bold; }
             small{ @apply font-bold; }
             .textarea ~ label{
                 @apply text-xs bg-light rounded-t-[15px]
@@ -747,6 +762,7 @@
             }
             .upload-box{ @apply py-4 f-col-center; }
             .upload-box-alt{ @apply py-2 flex center; }
+            label{@apply !text-white;}
         }
         .input-photo:hover{
             .upload-box, .upload-box-alt{ @apply bg-darkBlue/80; }

@@ -10,7 +10,11 @@ import {
   setSuccess,
 } from "../../../../store/StoreAction";
 import { StoreContext } from "../../../../store/StoreContext";
-import { InputText, InputTextArea } from "../../../helpers/FormInputs";
+import {
+  InputSelect,
+  InputText,
+  InputTextArea,
+} from "../../../helpers/FormInputs";
 import { queryData } from "../../../helpers/queryData";
 import ModalWrapper from "../../../partials/modals/ModalWrapper";
 import SpinnerButton from "../../../partials/spinners/SpinnerButton";
@@ -41,7 +45,8 @@ const ModalAddProjInfo = ({ itemEdit }) => {
         );
       } else {
         dispatch(setError(true));
-        dispatch(setMessage(`Failed updating database.`));
+        // dispatch(setMessage(`Failed updating database.`));
+        dispatch(setMessage(data.error));
       }
     },
   });
@@ -101,12 +106,22 @@ const ModalAddProjInfo = ({ itemEdit }) => {
                     cls="h-[200px]"
                   />
                 </div>
-                <div className="input-wrap">
+                {/* <div className="input-wrap">
                   <InputText
                     label="Project Category"
                     type="text"
                     name="project_category"
                   />
+                </div> */}
+                <div className="input-wrap">
+                  <InputSelect label="Project Category" name="project_category">
+                    <option value="" hidden>
+                      Select
+                    </option>
+                    <option value="School">School</option>
+                    <option value="FBS OJT">FBS OJT</option>
+                    <option value="Others">Others</option>
+                  </InputSelect>
                 </div>
                 <div className="input-wrap">
                   <InputText
