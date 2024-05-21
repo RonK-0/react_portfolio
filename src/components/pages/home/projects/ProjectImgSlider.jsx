@@ -90,6 +90,7 @@ const ProjectImgSlider = ({ project_aid }) => {
                   <Link
                     to={`${baseImgUrl}/${item.project_img}`}
                     target="_blank"
+                    key={key}
                   >
                     <img
                       src={`${baseImgUrl}/${item.project_img}`}

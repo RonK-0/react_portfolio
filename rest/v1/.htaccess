@@ -11,6 +11,7 @@ Header set Access-Control-Allow-Origin *
 
 ### SETTING ROLES ###
 
+# Projects Stuff
 RewriteRule ^projects/count$ controllers/projects_full_count/projects_full_count.php [L]
 
 RewriteRule ^projects/full$ controllers/projects_full/projects_full.php [L]
@@ -31,14 +32,28 @@ RewriteRule ^projects/skill/([0-9]+)$ controllers/projects_skill/projects_skill.
 RewriteRule ^projects/skill/active/([0-9]+)$ controllers/projects_skill/active.php?projskillid=$1 [L]
 
 
+# Skills Stuff
 RewriteRule ^skills$ controllers/skills/skills.php [L]
 RewriteRule ^skills/([0-9]+)$ controllers/skills/skills.php?skillid=$1 [L]
 RewriteRule ^skills/active/([0-9]+)$ controllers/skills/active.php?skillid=$1 [L]
 
 
+# Certs Stuff
 RewriteRule ^certs$ controllers/certs/certs.php [L]
 RewriteRule ^certs/([0-9]+)$ controllers/certs/certs.php?certid=$1 [L]
 RewriteRule ^certs/active/([0-9]+)$ controllers/certs/active.php?certid=$1 [L]
 
 
+# User Login and Other Related Stuff
+RewriteRule ^user$ controllers/user/user.php [L]
+RewriteRule ^user/([0-9]+)$ controllers/user/user.php?userid=$1 [L]
+RewriteRule ^user/active/([0-9]+)$ controllers/user/active.php?userid=$1 [L]
+RewriteRule ^user/search$ controllers/user/search.php [L]
+RewriteRule ^user/password$ controllers/user/set-password.php [L]
+RewriteRule ^user/reset$ controllers/user/reset-password.php [L]
+RewriteRule ^user/login$ controllers/user/login.php [L]
+RewriteRule ^user/token$ controllers/user/token.php [L]
+
+
+# Photo Upload Stuff
 RewriteRule ^upload.photo$ core/upload-photo.php [L]

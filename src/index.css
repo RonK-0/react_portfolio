@@ -270,11 +270,11 @@
         hover:text-white text-dark;
     }
     .btn--darkBlue{ @apply bg-darkBlue text-white; }
+    .btn--termGreen{ @apply bg-termGreen/70 ; }
     .btn--blueGray{ @apply bg-blueGray text-dark; }
     .btn-form{ @apply p-2 w-1/2 flex center gap-2; }
     .btn--cancel{ @apply bg-cancel text-white; }
     .btn--alert{ @apply bg-alert text-white; }
-    .btn--info{ @apply bg-info text-white; }
     .btn--warning{ @apply bg-warning text-white; }
     .btn--form{ @apply p-2 flex center gap-2; }
 /* END OF REUSABLE CLASSES */
@@ -294,7 +294,7 @@
             @apply md:hidden;
             ul{
                 @apply f-col-center gap-10
-                w-1/2 h-screen
+                w-[280px] h-screen
                 absolute top-0  bg-darkBlue
                 transition-all duration-300;
                 li{ @apply text-3xl; }
@@ -427,16 +427,17 @@
                 py-10 xl:py-6 px-8
                 transition-all duration-300;
                 .project__card_text{
-                    @apply text-white
-                    w-full lg:w-1/2
-                    f-col gap-4
-                    *:select-none;
-                    .project_title>.project_year{ @apply text-h4; }
+                    @apply text-white *:select-none
+                    w-full lg:w-1/2 f-col gap-4;
+                    .project_title{
+                        @apply text-balance;
+                        .project_year{ @apply text-h4; }
+                    }
                     .project_section{
                         .project_section_label{
-                            @apply underline opacity-95 capitalize;
+                            @apply underline capitalize;
                         }
-                        .project_description{ @apply leading-h3 pl-2; }
+                        .project_description{ @apply leading-[2.15] pl-2 text-balance; }
                         .project_skills{
                             @apply flex items-center flex-wrap gap-x-8 gap-y-4 p-2;
                             li{
@@ -640,10 +641,10 @@
                 @apply -order-1 block;
             }
             .searchBox:has(input:focus){
-                @apply ml-0  w-[calc(100%+32px)] ;
+                @apply ml-0 w-[calc(100%+32px)] border-searchBox_focus;
             }
-            .box:has(input:focus){ @apply border-searchBox_focus; }
-            svg{ @apply fill-light_bg; }
+            /* .box:has(input:focus){ @apply border-searchBox_focus; } */
+            svg{ @apply fill-white; }
         }
     
         .sidebar-collapsed button, .sidebar-collapsed a{
@@ -706,14 +707,15 @@
         table.dash_project_skill tr { @apply grid-cols-8; }
         table.dash_skills tr { @apply grid-cols-6; }
         table.dash_certs tr { @apply grid-cols-7; }
-
+        table.dash_users tr { @apply grid-cols-5; }
 
         .db-grid{
             @apply grid grid-cols-auto-fill gap-6 w-full p-6;
             .db-tbl{
                 @apply bg-lightGray hover:bg-darkBlue 
                 py-6 px-4 text-white rounded-[15px]
-                transition-all duration-300;
+                transition-all duration-300
+                text-center f-col-center;
                 h3{ @apply mb-6 underline; }
             }
         }

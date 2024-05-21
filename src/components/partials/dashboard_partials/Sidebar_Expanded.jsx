@@ -1,7 +1,7 @@
 import React from "react";
 import { BiGlobe, BiImageAdd } from "react-icons/bi";
 import { BsGridFill } from "react-icons/bs";
-import { FaBolt, FaCertificate } from "react-icons/fa";
+import { FaBolt, FaCertificate, FaUserAlt } from "react-icons/fa";
 import { GiSkills } from "react-icons/gi";
 import { HiDocument, HiHome } from "react-icons/hi";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -74,6 +74,13 @@ const Sidebar_Expanded = ({ setShowSideBar, showSideBar }) => {
           <Link className="sidebar-link-item" to={'/database/skills/'}>
             <FaBolt className="text-2xl" />
             <p>Skills</p>
+          </Link>
+        </div>
+
+        <div className="sidebar-links">
+          <Link className="sidebar-link-item" to={'/database/users/'}>
+            <FaUserAlt className="text-2xl" />
+            <p>Users</p>
           </Link>
         </div>
       </div>

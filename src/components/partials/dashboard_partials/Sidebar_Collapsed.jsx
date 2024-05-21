@@ -1,7 +1,7 @@
 import React from "react";
-import { BiGlobe, BiImageAdd } from "react-icons/bi";
+import { BiImageAdd } from "react-icons/bi";
 import { BsGridFill } from "react-icons/bs";
-import { FaBolt, FaCertificate } from "react-icons/fa";
+import { FaBolt, FaCertificate, FaUserAlt } from "react-icons/fa";
 import { GiSkills } from "react-icons/gi";
 import { HiDocument, HiHome } from "react-icons/hi";
 import { Link } from "react-router-dom";
@@ -42,6 +42,10 @@ const Sidebar_Collapsed = () => {
       <Link to={'/database/skills/'}>
         <FaBolt />
         <small>Skills</small>
+      </Link>
+      <Link to={'/database/users/'}>
+        <FaUserAlt />
+        <small>Users</small>
       </Link>
     </div>
   );

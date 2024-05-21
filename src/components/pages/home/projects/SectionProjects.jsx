@@ -45,7 +45,7 @@ const SectionProjects = () => {
           className={`project_selector_button ${isOJT == true ? "active" : ""}`}
           onClick={handleOJT}
         >
-          FBS OJT
+          OJT
         </button>
         <button
           type="button"

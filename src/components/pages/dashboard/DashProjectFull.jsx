@@ -35,7 +35,7 @@ const DashProjectFull = () => {
             
             <Link
               to={"/database/project/"}
-              className="btn btn--blueGray text-white"
+              className="btn btn--blueGray"
             >
               Hide Image File Names & Skills
             </Link>

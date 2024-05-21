@@ -35,7 +35,7 @@ const DashProjCount = () => {
             
             <Link
               to={"/database/project/full"}
-              className="btn btn--blueGray text-white"
+              className="btn btn--blueGray"
             >
               Show Image File Names & Skills
             </Link>

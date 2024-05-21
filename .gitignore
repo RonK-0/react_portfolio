@@ -36,5 +36,9 @@ run.bat
 # ignore rest stuff
 #rest/*/*
 apiKey.php
+rest/v1/jwt
+rest/v1/notification/*
+rest/v1/notification/PHPMailer
+rest/v1/notification/mail-config.php
 
 *.sql

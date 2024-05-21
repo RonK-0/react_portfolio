@@ -25,7 +25,7 @@ const Header = ({scrollToElement, pos}) => {
             </nav>
             
             <div className="mobile_nav">
-              <ul className={`${showNav ? 'right-0' : '-right-full'}`}>
+              <ul className={`${showNav ? 'right-0' : 'right-[-1000%]'}`}>
                 <Navigation scrollToElement={scrollToElement} />
               </ul>
             </div>
