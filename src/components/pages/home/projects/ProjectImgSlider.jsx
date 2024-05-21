@@ -43,7 +43,7 @@ const ProjectImgSlider = ({ project_aid }) => {
     autoplaySpeed: 3000,
     fade: true,
     focusOnSelect: true,
-    adaptiveHeight: true
+    adaptiveHeight: true,
   };
   const settingsThumbs = {
     className: "thumbsSlider",
@@ -98,7 +98,15 @@ const ProjectImgSlider = ({ project_aid }) => {
                       alt=""
                     />
                   </Link>
-                ) : null
+                // <ImageModal
+                //     sm_img={`${baseImgUrl}/${item.project_img}`}
+                //     lg_img={`${baseImgUrl}/${item.project_img}`}
+                //     altText={""}
+                //     img_class={"slider_img"}
+                //     key={key}
+                //   />
+                ) : 
+                null
               )}
             </Slider>
             <Slider

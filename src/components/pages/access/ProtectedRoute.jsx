@@ -29,7 +29,7 @@ const ProtectedRoute = ({ children }) => {
         setIsAuth("123");
         setLoading(false);
         delete login.data.user_password;
-        setPageStatus(true);
+        // setPageStatus(true);
       }
     };
 
@@ -42,7 +42,7 @@ const ProtectedRoute = ({ children }) => {
     }
   }, [dispatch]);
 
-  if (!pageStatus) {
+  if (pageStatus) {
     return <NotFound />;
   } else {
     return (
