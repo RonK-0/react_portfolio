@@ -36,9 +36,19 @@ const DashProjectInfo = () => {
       <DashWrapper>
         <div className="py-6 pl-2 pr-4">
           <div className="dash_heading">
-            <h3>Portfolio: Project Info</h3>
-            <button className="btn btn--blueGray dash-new" onClick={handleAdd}>New Project Info<HiOutlinePlusCircle /></button>
+            <div className="flex gap-6 items-center">
+              <h3>Portfolio: Project Info</h3>
+              <span className="text-white">
+                ({project?.data.length} project entries)
+              </span>
+            </div>
+
+            <button className="btn btn--blueGray dash-new" onClick={handleAdd}>
+              New Project Info
+              <HiOutlinePlusCircle />
+            </button>
           </div>
+          
           <DashProjectInfoTable
             isLoading={isLoading}
             project={project}

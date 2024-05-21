@@ -28,7 +28,7 @@ const SectionBanner = ({ scrollToElement }) => {
 
         <button type="button" onClick={() => scrollToElement("projects")}>
           <TypeAnimation
-            sequence={[350, "Projects"]}
+            sequence={[450, "Projects"]}
             wrapper="span"
             speed={80}
             repeat={0}
@@ -38,7 +38,7 @@ const SectionBanner = ({ scrollToElement }) => {
 
         <button type="button" onClick={() => scrollToElement("education")}>
           <TypeAnimation
-            sequence={[600, "Education"]}
+            sequence={[700, "Education"]}
             wrapper="span"
             speed={80}
             repeat={0}
@@ -48,7 +48,7 @@ const SectionBanner = ({ scrollToElement }) => {
 
         <button type="button" onClick={() => scrollToElement("certifications")}>
           <TypeAnimation
-            sequence={[800, "Certifications"]}
+            sequence={[900, "Certifications"]}
             wrapper="span"
             speed={80}
             repeat={0}
@@ -58,7 +58,7 @@ const SectionBanner = ({ scrollToElement }) => {
 
         <button type="button" onClick={() => scrollToElement("skills")}>
           <TypeAnimation
-            sequence={[1200, "Skills"]}
+            sequence={[1300, "Skills"]}
             wrapper="span"
             speed={80}
             repeat={0}
@@ -68,37 +68,18 @@ const SectionBanner = ({ scrollToElement }) => {
 
         <button type="button" onClick={() => scrollToElement("contact")}>
           <TypeAnimation
-            sequence={[1500, "Contact"]}
+            sequence={[1600, "Contact"]}
             wrapper="span"
             speed={80}
             repeat={0}
             cursor={false}
           />
         </button>
-
-        {/* <button type="button" onClick={() => scrollToElement("about")}>
-          About
-        </button>
-        <button type="button" onClick={() => scrollToElement("projects")}>
-          Projects
-        </button>
-        <button type="button" onClick={() => scrollToElement("education")}>
-          Education
-        </button>
-        <button type="button" onClick={() => scrollToElement("certifications")}>
-          Certifications
-        </button>
-        <button type="button" onClick={() => scrollToElement("skills")}>
-          Skills
-        </button>
-        <button type="button" onClick={() => scrollToElement("contact")}>
-          Contact
-        </button> */}
       </p>
 
       <p className="termGreen">
         <TypeAnimation
-          sequence={[1900, "portfolio@ron:~$ "]}
+          sequence={[2000, "portfolio@ron:~$ "]}
           wrapper="span"
           className="termGreen"
           speed={100}
@@ -106,7 +87,7 @@ const SectionBanner = ({ scrollToElement }) => {
           cursor={false}
         />
         <TypeAnimation
-          sequence={[2100, "Click a file to go to a section"]}
+          sequence={[2200, "Click a file to go to a section"]}
           wrapper="span"
           className="termHint"
           speed={80}
@@ -118,7 +99,7 @@ const SectionBanner = ({ scrollToElement }) => {
 
       <p className="termGreen">
         <TypeAnimation
-          sequence={[3000, "portfolio@ron:~$ "]}
+          sequence={[3100, "portfolio@ron:~$ "]}
           wrapper="span"
           className="termGreen"
           speed={100}
@@ -126,15 +107,13 @@ const SectionBanner = ({ scrollToElement }) => {
           cursor={false}
         />
         <TypeAnimation
-          sequence={[3200, "▉"]}
+          sequence={[3300, "▉"]}
           wrapper="span"
           className="blinking"
           speed={100}
           repeat={0}
           cursor={false}
         />
-        {/*  portfolio@ron:~$
-          <span className="blinking">▉</span> */}
       </p>
     </div>
   );

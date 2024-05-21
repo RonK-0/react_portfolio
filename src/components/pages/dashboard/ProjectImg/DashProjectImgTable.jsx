@@ -14,22 +14,22 @@ import TableLoader from "../../../partials/TableLoader";
 import SpinnerFetching from "../../../partials/spinners/SpinnerFetching";
 import ModalConfirm from "../../../partials/modals/ModalConfirm";
 import ModalDelete from "../../../partials/modals/ModalDelete";
-import useQueryData from "../../../custom-hook/useQueryData";
 
-const DashProjectImgTable = ({setItemEdit}) => {
+
+const DashProjectImgTable = ({setItemEdit, project_img, isLoading, isFetching}) => {
   const { dispatch, store } = useContext(StoreContext);
   const [id, setId] = useState("");
 
-  const {
-    isLoading,
-    isFetching,
-    error,
-    data: project_img,
-  } = useQueryData(
-    "/v1/projects/img", // endpoint
-    "get", // method
-    "projects/img"
-  );
+  // const {
+  //   isLoading,
+  //   isFetching,
+  //   error,
+  //   data: project_img,
+  // } = useQueryData(
+  //   "/v1/projects/img", // endpoint
+  //   "get", // method
+  //   "projects/img"
+  // );
 
   const handleEdit = (item) => {
     setItemEdit(item);

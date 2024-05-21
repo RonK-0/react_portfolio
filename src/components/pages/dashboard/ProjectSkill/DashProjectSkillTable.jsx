@@ -14,22 +14,21 @@ import TableLoader from "../../../partials/TableLoader";
 import SpinnerFetching from "../../../partials/spinners/SpinnerFetching";
 import ModalConfirm from "../../../partials/modals/ModalConfirm";
 import ModalDelete from "../../../partials/modals/ModalDelete";
-import useQueryData from "../../../custom-hook/useQueryData";
 
-const DashProjSkillTable = ({setItemEdit}) => {
+const DashProjSkillTable = ({setItemEdit, isLoading, isFetching, project_skill}) => {
   const { dispatch, store } = useContext(StoreContext);
   const [id, setId] = useState("");
 
-  const {
-    isLoading,
-    isFetching,
-    error,
-    data: project_skill,
-  } = useQueryData(
-    "/v1/projects/skill", // endpoint
-    "get", // method
-    "projects/skill"
-  );
+  // const {
+  //   isLoading,
+  //   isFetching,
+  //   error,
+  //   data: project_skill,
+  // } = useQueryData(
+  //   "/v1/projects/skill", // endpoint
+  //   "get", // method
+  //   "projects/skill"
+  // );
 
   const handleEdit = (item) => {
     setItemEdit(item);

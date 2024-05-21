@@ -9,27 +9,27 @@ import {
   setIsEdit,
 } from "../../../../store/StoreAction";
 import { StoreContext } from "../../../../store/StoreContext";
-import useQueryData from "../../../custom-hook/useQueryData";
+
 import NoData from "../../../partials/NoData";
 import TableLoader from "../../../partials/TableLoader";
 import ModalConfirm from "../../../partials/modals/ModalConfirm";
 import ModalDelete from "../../../partials/modals/ModalDelete";
 import SpinnerFetching from "../../../partials/spinners/SpinnerFetching";
 
-const DashCertsTable = ({ setItemEdit }) => {
+const DashCertsTable = ({ setItemEdit, certs, isFetching, isLoading }) => {
   const { dispatch, store } = useContext(StoreContext);
   const [id, setId] = useState("");
 
-  const {
-    isLoading,
-    isFetching,
-    error,
-    data: certs,
-  } = useQueryData(
-    "/v1/certs", // endpoint
-    "get", // method
-    "certs"
-  );
+  // const {
+  //   isLoading,
+  //   isFetching,
+  //   error,
+  //   data: certs,
+  // } = useQueryData(
+  //   "/v1/certs", // endpoint
+  //   "get", // method
+  //   "certs"
+  // );
 
   const handleEdit = (item) => {
     setItemEdit(item);

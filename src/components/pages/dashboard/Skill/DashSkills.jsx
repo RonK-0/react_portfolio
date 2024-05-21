@@ -1,4 +1,4 @@
-import { HiOutlinePlusCircle } from "react-icons/hi"; 
+import { HiOutlinePlusCircle } from "react-icons/hi";
 import React, { useContext, useState } from "react";
 import { setIsAdd, setIsEdit } from "../../../../store/StoreAction";
 import { StoreContext } from "../../../../store/StoreContext";
@@ -7,7 +7,7 @@ import { PageTitle } from "../../../helpers/functions-general";
 import DashWrapper from "../../../partials/dashboard_partials/DashWrapper";
 import ModalError from "../../../partials/modals/ModalError";
 import Toast from "../../../partials/Toast";
-import DashSklllTable from './DashSklllTable'
+import DashSklllTable from "./DashSklllTable";
 import ModalAddSkills from "./ModalAddSkills";
 
 const DashSkills = () => {
@@ -33,15 +33,25 @@ const DashSkills = () => {
     "get", // method
     "skills"
   );
+  
   return (
     <>
       <DashWrapper>
-
-      <div className="py-6 pl-2 pr-4">
+        <div className="py-6 pl-2 pr-4">
           <div className="dash_heading">
-            <h3>Portfolio: Skills</h3>
-            <button className="btn btn--blueGray dash-new" onClick={handleAdd}>New Skill Entry<HiOutlinePlusCircle /></button>
+            <div className="flex gap-6 items-center">
+              <h3>Portfolio: Skills</h3>{" "}
+              <span className="text-white">
+                ({skills?.data.length} skill entries)
+              </span>
+            </div>
+
+            <button className="btn btn--blueGray dash-new" onClick={handleAdd}>
+              New Skill Entry
+              <HiOutlinePlusCircle />
+            </button>
           </div>
+          
           <DashSklllTable
             isLoading={isLoading}
             skills={skills}

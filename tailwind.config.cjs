@@ -54,7 +54,7 @@ export default {
       },
       gridTemplateColumns: {
         // 'auto-fit': 'repeat(auto-fit, minmax(0, 1fr))',
-        'auto-fill': 'repeat(auto-fit, minmax(300px, 1fr))',
+        'auto-fill': 'repeat(auto-fit, minmax(250px, 1fr))',
       },
       fontFamily: {
         // 'text-inter': ["Inter", "sans-serif"],
