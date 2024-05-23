@@ -56,6 +56,24 @@ Class Skillz {
         return $query;
     }
 
+	public function readById()
+    {
+        try {
+            $sql = "select * ";
+            $sql .= "from {$this->tblSkills} ";
+            $sql .= "order by skill_aid asc ";
+            // $sql .= "order by project_aid asc ";
+			$query = $this->connection->prepare($sql);
+            $query->execute([
+                "skill_aid" => $this->skill_aid,
+            ]);
+            $query = $this->connection->query($sql);
+        } catch (PDOException $ex) {
+            $query = false;
+        }
+        return $query;
+    }
+	
     public function readAll()
     {
         try {
