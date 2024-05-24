@@ -56,7 +56,8 @@ const ModalAddCert = ({ itemEdit }) => {
   const initVal = {
     cert_title: itemEdit ? itemEdit.cert_title : "",
     cert_org: itemEdit ? itemEdit.cert_org : "",
-    cert_date: itemEdit ? itemEdit.cert_date : "",
+    // cert_date: itemEdit ? itemEdit.cert_date : "",
+    cert_date: itemEdit ? itemEdit.cert_date : Date.now(),
     cert_image: itemEdit ? itemEdit.cert_image : ""
   };
   const yupSchema = object({
@@ -151,7 +152,7 @@ const ModalAddCert = ({ itemEdit }) => {
                 <div className="input-wrap">
                   <InputText
                     label="Certificate Date"
-                    type="text"
+                    type="date"
                     name="cert_date"
                   />
                 </div>

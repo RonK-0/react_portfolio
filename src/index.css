@@ -747,7 +747,7 @@
             .textarea ~ label{
                 @apply text-xs bg-light rounded-t-[15px]
                 top-0 translate-y-0
-                px-3 mx-2 mt-[2px] pt-2 w-[300px];
+                pt-2 pl-[18px] mx-[2px] mt-[2px] w-[calc(100%-10px)];
             }
             .textarea{ @apply pt-8; }
             .textarea:focus ~ label{ @apply bg-dark; }

@@ -15,6 +15,7 @@ import TableLoader from "../../../partials/TableLoader";
 import ModalConfirm from "../../../partials/modals/ModalConfirm";
 import ModalDelete from "../../../partials/modals/ModalDelete";
 import SpinnerFetching from "../../../partials/spinners/SpinnerFetching";
+import { devBaseImgUrl } from "../../../helpers/functions-general";
 
 const DashCertsTable = ({ setItemEdit, certs, isFetching, isLoading }) => {
   const { dispatch, store } = useContext(StoreContext);
@@ -63,6 +64,7 @@ const DashCertsTable = ({ setItemEdit, certs, isFetching, isLoading }) => {
             <th>Cert Title</th>
             <th>Cert Organization</th>
             <th>Cert Date</th>
+            {/* <th>Image</th> */}
             <th>Has Image?</th>
             <th>Visible?</th>
             <th>Actions</th>
@@ -93,6 +95,7 @@ const DashCertsTable = ({ setItemEdit, certs, isFetching, isLoading }) => {
               <td>{item.cert_title}</td>
               <td>{item.cert_org}</td>
               <td>{item.cert_date}</td>
+              {/* <td><img src={`${devBaseImgUrl}/${item.cert_image}`} alt="" /></td> */}
               <td>{(item.cert_image !== "" && "Yes") || "No"}</td>
               <td>{item.cert_is_active === 1 ? "Yes" : "No"}</td>
               <td className="table-action">
